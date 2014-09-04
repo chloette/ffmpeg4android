@@ -3,7 +3,7 @@ ffmpeg4android README
 (FFmpeg README is listed below)
 ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg modules (without bins) and X264 encoders.
 
-##Usage
+##How to use
 1. Download [Android NDK](https://developer.android.com/tools/sdk/ndk/index.html)
 2. Put this whole project (actually, only Android folder should be enough.) under $NDK/sources/ffmpeg4android
 3. Add reference "$(call import-module, ffmpeg4android/android/arm)" into Android.mk of your NDK project.
