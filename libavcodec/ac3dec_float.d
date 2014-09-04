@@ -14,11 +14,11 @@ libavcodec/ac3dec_float.o: libavcodec/ac3dec_float.c libavcodec/ac3dec.h \
  libavutil/cpu.h libavutil/channel_layout.h libavutil/dict.h \
  libavutil/frame.h libavutil/buffer.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/ac3tab.h \
- libavutil/internal.h libavcodec/ac3dsp.h libavcodec/bswapdsp.h \
- libavcodec/get_bits.h libavutil/intreadwrite.h libavutil/bswap.h \
- libavutil/arm/bswap.h libavutil/arm/intreadwrite.h libavutil/avassert.h \
- libavcodec/mathops.h libavcodec/fft.h libavcodec/avfft.h \
+ libavcodec/old_codec_ids.h libavcodec/ac3tab.h libavutil/internal.h \
+ libavcodec/ac3dsp.h libavcodec/bswapdsp.h libavcodec/get_bits.h \
+ libavutil/intreadwrite.h libavutil/bswap.h libavutil/arm/bswap.h \
+ libavutil/arm/intreadwrite.h libavutil/avassert.h libavcodec/mathops.h \
+ libavcodec/fft.h libavutil/mem.h libavcodec/avfft.h \
  libavcodec/fmtconvert.h libavcodec/ac3dec.c libavutil/crc.h \
  libavutil/downmix_info.h libavutil/frame.h libavcodec/internal.h \
  libavutil/mathematics.h libavcodec/aac_ac3_parser.h libavcodec/parser.h \

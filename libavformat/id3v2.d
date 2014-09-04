@@ -15,5 +15,5 @@ libavformat/id3v2.o: libavformat/id3v2.c config.h libavutil/avstring.h \
  libavutil/avutil.h libavutil/buffer.h libavutil/cpu.h \
  libavutil/channel_layout.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/pixfmt.h libavutil/rational.h \
- libavcodec/version.h libavutil/mem.h libavcodec/old_codec_ids.h \
- libavformat/id3v1.h libavformat/id3v2.h libavformat/metadata.h
+ libavcodec/version.h libavcodec/old_codec_ids.h libavformat/id3v1.h \
+ libavformat/id3v2.h libavformat/metadata.h

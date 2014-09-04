@@ -15,8 +15,8 @@ libavcodec/hevcdsp.o: libavcodec/hevcdsp.c libavcodec/hevcdsp.h \
  libavutil/avutil.h libavutil/cpu.h libavutil/channel_layout.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/pixfmt.h libavutil/rational.h \
- libavcodec/version.h libavutil/version.h libavutil/mem.h \
- libavcodec/old_codec_ids.h libavcodec/bswapdsp.h libavcodec/cabac.h \
- libavcodec/put_bits.h libavcodec/hevcpred.h libavcodec/internal.h \
- libavutil/mathematics.h libavcodec/thread.h libavcodec/videodsp.h \
+ libavcodec/version.h libavutil/version.h libavcodec/old_codec_ids.h \
+ libavcodec/bswapdsp.h libavcodec/cabac.h libavcodec/put_bits.h \
+ libavcodec/hevcpred.h libavcodec/internal.h libavutil/mathematics.h \
+ libavcodec/thread.h libavcodec/videodsp.h \
  libavcodec/bit_depth_template.c libavcodec/rnd_avg.h

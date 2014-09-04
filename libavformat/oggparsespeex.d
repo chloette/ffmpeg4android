@@ -15,6 +15,6 @@ libavformat/oggparsespeex.o: libavformat/oggparsespeex.c \
  libavutil/avutil.h libavutil/buffer.h libavutil/cpu.h libavutil/dict.h \
  libavutil/frame.h libavutil/buffer.h libavutil/samplefmt.h \
  libavutil/pixfmt.h libavutil/rational.h libavcodec/version.h \
- libavutil/version.h libavutil/mem.h libavcodec/old_codec_ids.h \
- libavformat/avio.h libavformat/version.h libavformat/internal.h \
- libavformat/oggdec.h libavformat/metadata.h
+ libavutil/version.h libavcodec/old_codec_ids.h libavformat/avio.h \
+ libavformat/version.h libavformat/internal.h libavformat/oggdec.h \
+ libavformat/metadata.h

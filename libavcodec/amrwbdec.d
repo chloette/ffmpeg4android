@@ -11,9 +11,9 @@ libavcodec/amrwbdec.o: libavcodec/amrwbdec.c libavutil/channel_layout.h \
  libavutil/avutil.h libavutil/buffer.h libavutil/cpu.h libavutil/dict.h \
  libavutil/frame.h libavutil/buffer.h libavutil/samplefmt.h \
  libavutil/log.h libavutil/pixfmt.h libavutil/rational.h \
- libavcodec/version.h libavutil/version.h libavutil/mem.h \
- libavcodec/old_codec_ids.h libavcodec/lsp.h libavcodec/celp_filters.h \
- libavcodec/celp_math.h libavcodec/acelp_filters.h \
- libavcodec/acelp_vectors.h libavcodec/acelp_pitch_delay.h \
- libavcodec/audiodsp.h libavcodec/internal.h libavutil/mathematics.h \
- libavcodec/amr.h libavcodec/amrwbdata.h libavcodec/mips/amrwbdec_mips.h
+ libavcodec/version.h libavutil/version.h libavcodec/old_codec_ids.h \
+ libavcodec/lsp.h libavcodec/celp_filters.h libavcodec/celp_math.h \
+ libavcodec/acelp_filters.h libavcodec/acelp_vectors.h \
+ libavcodec/acelp_pitch_delay.h libavcodec/audiodsp.h \
+ libavcodec/internal.h libavutil/mathematics.h libavcodec/amr.h \
+ libavcodec/amrwbdata.h libavcodec/mips/amrwbdec_mips.h

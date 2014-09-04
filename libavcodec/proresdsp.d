@@ -12,5 +12,5 @@ libavcodec/proresdsp.o: libavcodec/proresdsp.c config.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/proresdsp.h \
- libavcodec/dsputil.h libavcodec/simple_idct.h
+ libavcodec/old_codec_ids.h libavcodec/proresdsp.h \
+ libavcodec/simple_idct.h

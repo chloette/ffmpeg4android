@@ -13,5 +13,4 @@ libavcodec/msvideo1.o: libavcodec/msvideo1.c libavutil/internal.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/internal.h \
- libavutil/mathematics.h
+ libavcodec/old_codec_ids.h libavcodec/internal.h libavutil/mathematics.h

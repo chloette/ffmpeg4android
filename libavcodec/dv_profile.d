@@ -13,6 +13,5 @@ libavcodec/dv_profile.o: libavcodec/dv_profile.c config.h \
  libavutil/buffer.h libavutil/cpu.h libavutil/channel_layout.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/pixfmt.h libavutil/rational.h \
- libavcodec/version.h libavutil/version.h libavutil/mem.h \
- libavcodec/old_codec_ids.h libavcodec/dv_profile.h \
- libavcodec/dv_profile_internal.h
+ libavcodec/version.h libavutil/version.h libavcodec/old_codec_ids.h \
+ libavcodec/dv_profile.h libavcodec/dv_profile_internal.h

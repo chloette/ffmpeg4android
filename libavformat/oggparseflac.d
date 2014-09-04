@@ -14,8 +14,7 @@ libavformat/oggparseflac.o: libavformat/oggparseflac.c \
  libavutil/buffer.h libavutil/cpu.h libavutil/channel_layout.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/pixfmt.h libavutil/rational.h \
- libavcodec/version.h libavutil/version.h libavutil/mem.h \
- libavcodec/old_codec_ids.h libavcodec/bytestream.h libavcodec/get_bits.h \
- libavformat/avformat.h libavcodec/avcodec.h libavformat/avio.h \
- libavformat/version.h libavformat/internal.h libavformat/oggdec.h \
- libavformat/metadata.h
+ libavcodec/version.h libavutil/version.h libavcodec/old_codec_ids.h \
+ libavcodec/bytestream.h libavcodec/get_bits.h libavformat/avformat.h \
+ libavcodec/avcodec.h libavformat/avio.h libavformat/version.h \
+ libavformat/internal.h libavformat/oggdec.h libavformat/metadata.h

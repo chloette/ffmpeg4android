@@ -11,6 +11,6 @@ libavcodec/wmv2dsp.o: libavcodec/wmv2dsp.c libavutil/attributes.h \
  libavutil/channel_layout.h libavutil/dict.h libavutil/frame.h \
  libavutil/buffer.h libavutil/samplefmt.h libavutil/log.h \
  libavutil/pixfmt.h libavutil/rational.h libavcodec/version.h \
- libavutil/version.h libavutil/mem.h libavcodec/old_codec_ids.h \
- libavcodec/idctdsp.h libavcodec/mathops.h libavcodec/arm/mathops.h \
- libavcodec/wmv2dsp.h libavcodec/qpeldsp.h
+ libavutil/version.h libavcodec/old_codec_ids.h libavcodec/idctdsp.h \
+ libavcodec/mathops.h libavcodec/arm/mathops.h libavcodec/wmv2dsp.h \
+ libavcodec/qpeldsp.h

@@ -16,5 +16,4 @@ libavfilter/buffersrc.o: libavfilter/buffersrc.c \
  libavfilter/avfiltergraph.h libavfilter/formats.h libavfilter/thread.h \
  libavfilter/version.h libavfilter/video.h libavfilter/buffersrc.h \
  libavcodec/avcodec.h libavutil/buffer.h libavutil/cpu.h \
- libavcodec/version.h libavutil/mem.h libavcodec/old_codec_ids.h \
- libavfilter/avcodec.h
+ libavcodec/version.h libavcodec/old_codec_ids.h libavfilter/avcodec.h

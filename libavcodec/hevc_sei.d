@@ -15,7 +15,7 @@ libavcodec/hevc_sei.o: libavcodec/hevc_sei.c libavcodec/golomb.h \
  libavutil/cpu.h libavutil/channel_layout.h libavutil/dict.h \
  libavutil/frame.h libavutil/buffer.h libavutil/samplefmt.h \
  libavutil/pixfmt.h libavutil/rational.h libavcodec/version.h \
- libavutil/version.h libavutil/mem.h libavcodec/old_codec_ids.h \
- libavcodec/bswapdsp.h libavcodec/cabac.h libavcodec/hevcpred.h \
- libavcodec/hevcdsp.h libavcodec/internal.h libavutil/mathematics.h \
- libavcodec/thread.h libavcodec/videodsp.h
+ libavutil/version.h libavcodec/old_codec_ids.h libavcodec/bswapdsp.h \
+ libavcodec/cabac.h libavcodec/hevcpred.h libavcodec/hevcdsp.h \
+ libavcodec/internal.h libavutil/mathematics.h libavcodec/thread.h \
+ libavcodec/videodsp.h

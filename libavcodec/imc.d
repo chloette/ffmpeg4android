@@ -12,9 +12,9 @@ libavcodec/imc.o: libavcodec/imc.c libavutil/channel_layout.h \
  libavutil/cpu.h libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/bswapdsp.h \
- libavcodec/get_bits.h libavutil/common.h libavutil/intreadwrite.h \
- libavutil/bswap.h libavutil/arm/bswap.h libavutil/arm/intreadwrite.h \
- libavutil/avassert.h libavcodec/mathops.h libavcodec/arm/mathops.h \
- libavcodec/fft.h libavcodec/avfft.h libavcodec/internal.h \
+ libavcodec/old_codec_ids.h libavcodec/bswapdsp.h libavcodec/get_bits.h \
+ libavutil/common.h libavutil/intreadwrite.h libavutil/bswap.h \
+ libavutil/arm/bswap.h libavutil/arm/intreadwrite.h libavutil/avassert.h \
+ libavcodec/mathops.h libavcodec/arm/mathops.h libavcodec/fft.h \
+ libavutil/mem.h libavcodec/avfft.h libavcodec/internal.h \
  libavutil/mathematics.h libavcodec/sinewin.h libavcodec/imcdata.h

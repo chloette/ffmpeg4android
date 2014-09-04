@@ -12,10 +12,9 @@ libavcodec/dv.o: libavcodec/dv.c libavutil/internal.h config.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/get_bits.h \
- libavutil/common.h libavutil/intreadwrite.h libavutil/bswap.h \
- libavutil/arm/bswap.h libavutil/arm/intreadwrite.h libavutil/avassert.h \
- libavcodec/mathops.h libavcodec/arm/mathops.h libavcodec/internal.h \
- libavutil/mathematics.h libavcodec/put_bits.h libavcodec/simple_idct.h \
- libavcodec/dvdata.h libavcodec/dv.h libavcodec/dsputil.h \
- libavcodec/dv_profile.h
+ libavcodec/old_codec_ids.h libavcodec/get_bits.h libavutil/common.h \
+ libavutil/intreadwrite.h libavutil/bswap.h libavutil/arm/bswap.h \
+ libavutil/arm/intreadwrite.h libavutil/avassert.h libavcodec/mathops.h \
+ libavcodec/arm/mathops.h libavcodec/internal.h libavutil/mathematics.h \
+ libavcodec/put_bits.h libavcodec/simple_idct.h libavcodec/dvdata.h \
+ libavcodec/dv.h libavcodec/me_cmp.h libavcodec/dv_profile.h

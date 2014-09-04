@@ -12,6 +12,5 @@ libavformat/file.o: libavformat/file.c libavutil/avstring.h \
  libavutil/cpu.h libavutil/channel_layout.h libavutil/dict.h \
  libavutil/frame.h libavutil/buffer.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavformat/avio.h \
- libavutil/common.h libavformat/version.h libavformat/os_support.h \
- libavformat/url.h
+ libavcodec/old_codec_ids.h libavformat/avio.h libavutil/common.h \
+ libavformat/version.h libavformat/os_support.h libavformat/url.h

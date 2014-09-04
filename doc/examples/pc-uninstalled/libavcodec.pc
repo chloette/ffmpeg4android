@@ -5,8 +5,8 @@ includedir=${pcfiledir}/../../..
 
 Name: libavcodec
 Description: FFmpeg codec library
-Version: 55.69.100
-Requires: libswresample >= 0.19.100, libavutil >= 52.92.100
+Version: 56.1.100
+Requires: libswresample >= 1.1.100, libavutil >= 54.7.100
 Conflicts:
 Libs: -L${libdir} -Wl,-rpath,${libdir} -lavcodec 
 Cflags: -I${includedir}

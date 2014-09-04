@@ -15,13 +15,12 @@ libavcodec/msmpeg4data.o: libavcodec/msmpeg4data.c libavcodec/h263.h \
  libavutil/buffer.h libavutil/cpu.h libavutil/channel_layout.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/pixfmt.h libavcodec/version.h \
- libavutil/version.h libavutil/mem.h libavcodec/old_codec_ids.h \
- libavcodec/blockdsp.h libavcodec/dsputil.h libavcodec/error_resilience.h \
- libavcodec/thread.h libavcodec/fdctdsp.h libavcodec/h264chroma.h \
- libavcodec/h263dsp.h libavcodec/hpeldsp.h libavcodec/idctdsp.h \
- libavcodec/mpegvideodsp.h libavcodec/mpegvideoencdsp.h \
- libavcodec/pixblockdsp.h libavcodec/put_bits.h libavcodec/ratecontrol.h \
- libavutil/eval.h libavcodec/parser.h libavcodec/mpeg12data.h \
- libavcodec/rl.h libavcodec/qpeldsp.h libavcodec/videodsp.h \
- libavutil/opt.h libavutil/timecode.h libavcodec/mpeg4video.h \
- libavcodec/msmpeg4data.h
+ libavutil/version.h libavcodec/old_codec_ids.h libavcodec/blockdsp.h \
+ libavcodec/error_resilience.h libavcodec/me_cmp.h libavcodec/thread.h \
+ libavcodec/fdctdsp.h libavcodec/h264chroma.h libavcodec/h263dsp.h \
+ libavcodec/hpeldsp.h libavcodec/idctdsp.h libavcodec/mpegvideodsp.h \
+ libavcodec/mpegvideoencdsp.h libavcodec/pixblockdsp.h \
+ libavcodec/put_bits.h libavcodec/ratecontrol.h libavutil/eval.h \
+ libavcodec/parser.h libavcodec/mpeg12data.h libavcodec/rl.h \
+ libavcodec/qpeldsp.h libavcodec/videodsp.h libavutil/opt.h \
+ libavutil/timecode.h libavcodec/mpeg4video.h libavcodec/msmpeg4data.h

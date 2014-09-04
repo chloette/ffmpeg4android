@@ -17,7 +17,7 @@ libavcodec/hevc_filter.o: libavcodec/hevc_filter.c libavutil/common.h \
  libavutil/channel_layout.h libavutil/dict.h libavutil/frame.h \
  libavutil/buffer.h libavutil/samplefmt.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/bswapdsp.h \
- libavcodec/hevcpred.h libavcodec/hevcdsp.h libavcodec/internal.h \
- libavutil/mathematics.h libavcodec/thread.h libavcodec/videodsp.h \
+ libavcodec/old_codec_ids.h libavcodec/bswapdsp.h libavcodec/hevcpred.h \
+ libavcodec/hevcdsp.h libavcodec/internal.h libavutil/mathematics.h \
+ libavcodec/thread.h libavcodec/videodsp.h \
  libavcodec/bit_depth_template.c libavcodec/rnd_avg.h

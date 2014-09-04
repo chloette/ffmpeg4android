@@ -13,8 +13,7 @@ libavcodec/opus_imdct.o: libavcodec/opus_imdct.c config.h \
  libswresample/version.h libavutil/avutil.h libavcodec/avcodec.h \
  libavutil/buffer.h libavutil/cpu.h libavutil/channel_layout.h \
  libavutil/dict.h libavutil/log.h libavutil/pixfmt.h libavutil/rational.h \
- libavcodec/version.h libavutil/version.h libavutil/mem.h \
- libavcodec/old_codec_ids.h libavcodec/get_bits.h \
- libavutil/intreadwrite.h libavutil/bswap.h libavutil/arm/bswap.h \
- libavutil/arm/intreadwrite.h libavutil/avassert.h libavcodec/mathops.h \
- libavcodec/arm/mathops.h libavcodec/opus_imdct.h
+ libavcodec/version.h libavutil/version.h libavcodec/old_codec_ids.h \
+ libavcodec/get_bits.h libavutil/intreadwrite.h libavutil/bswap.h \
+ libavutil/arm/bswap.h libavutil/arm/intreadwrite.h libavutil/avassert.h \
+ libavcodec/mathops.h libavcodec/arm/mathops.h libavcodec/opus_imdct.h

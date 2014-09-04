@@ -13,11 +13,11 @@ libavcodec/h264_loopfilter.o: libavcodec/h264_loopfilter.c \
  libavcodec/avcodec.h libavutil/samplefmt.h libavutil/avutil.h \
  libavutil/cpu.h libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/log.h libavutil/rational.h \
- libavcodec/version.h libavutil/version.h libavutil/mem.h \
- libavcodec/old_codec_ids.h libavcodec/h264.h libavcodec/cabac.h \
- libavcodec/put_bits.h libavutil/avassert.h libavcodec/dsputil.h \
- libavcodec/error_resilience.h libavcodec/thread.h libavcodec/get_bits.h \
- libavutil/common.h libavcodec/mathops.h libavcodec/arm/mathops.h \
- libavcodec/h264chroma.h libavcodec/h264dsp.h libavcodec/h264pred.h \
- libavcodec/h264qpel.h libavcodec/qpeldsp.h libavcodec/mpegutils.h \
- libavcodec/parser.h libavcodec/rectangle.h libavcodec/videodsp.h
+ libavcodec/version.h libavutil/version.h libavcodec/old_codec_ids.h \
+ libavcodec/h264.h libavcodec/cabac.h libavcodec/put_bits.h \
+ libavutil/avassert.h libavcodec/error_resilience.h libavcodec/me_cmp.h \
+ libavcodec/thread.h libavcodec/get_bits.h libavutil/common.h \
+ libavcodec/mathops.h libavcodec/arm/mathops.h libavcodec/h264chroma.h \
+ libavcodec/h264dsp.h libavcodec/h264pred.h libavcodec/h264qpel.h \
+ libavcodec/qpeldsp.h libavcodec/mpegutils.h libavcodec/parser.h \
+ libavcodec/rectangle.h libavcodec/videodsp.h
