@@ -492,14 +492,14 @@
 @set config-hpeldsp yes
 @set config-huffman yes
 @set config-huffyuvdsp yes
-@c @set config-huffyuvencdsp no
+@set config-huffyuvencdsp yes
 @set config-idctdsp yes
 @set config-iirfilter yes
 @set config-intrax8 yes
 @c @set config-lgplv3 no
 @set config-llauddsp yes
 @set config-llviddsp yes
-@c @set config-lpc no
+@set config-lpc yes
 @set config-me-cmp yes
 @set config-mpeg-er yes
 @set config-mpegaudio yes
@@ -1165,143 +1165,143 @@
 @c @set config-libmodplug-demuxer no
 @c @set config-libnut-demuxer no
 @c @set config-libquvi-demuxer no
-@c @set config-a64multi-encoder no
-@c @set config-a64multi5-encoder no
-@c @set config-alias-pix-encoder no
-@c @set config-amv-encoder no
-@c @set config-asv1-encoder no
-@c @set config-asv2-encoder no
-@c @set config-avrp-encoder no
-@c @set config-avui-encoder no
-@c @set config-ayuv-encoder no
-@c @set config-bmp-encoder no
-@c @set config-cinepak-encoder no
-@c @set config-cljr-encoder no
-@c @set config-comfortnoise-encoder no
-@c @set config-dnxhd-encoder no
-@c @set config-dpx-encoder no
-@c @set config-dvvideo-encoder no
-@c @set config-ffv1-encoder no
-@c @set config-ffvhuff-encoder no
-@c @set config-flashsv-encoder no
-@c @set config-flashsv2-encoder no
-@c @set config-flv-encoder no
-@c @set config-gif-encoder no
-@c @set config-h261-encoder no
-@c @set config-h263-encoder no
-@c @set config-h263p-encoder no
-@c @set config-huffyuv-encoder no
-@c @set config-jpeg2000-encoder no
-@c @set config-jpegls-encoder no
-@c @set config-ljpeg-encoder no
-@c @set config-mjpeg-encoder no
-@c @set config-mpeg1video-encoder no
-@c @set config-mpeg2video-encoder no
-@c @set config-mpeg4-encoder no
-@c @set config-msmpeg4v2-encoder no
-@c @set config-msmpeg4v3-encoder no
-@c @set config-msvideo1-encoder no
-@c @set config-pam-encoder no
-@c @set config-pbm-encoder no
-@c @set config-pcx-encoder no
-@c @set config-pgm-encoder no
-@c @set config-pgmyuv-encoder no
-@c @set config-png-encoder no
-@c @set config-ppm-encoder no
-@c @set config-prores-encoder no
-@c @set config-prores-aw-encoder no
-@c @set config-prores-ks-encoder no
-@c @set config-qtrle-encoder no
-@c @set config-r10k-encoder no
-@c @set config-r210-encoder no
-@c @set config-rawvideo-encoder no
-@c @set config-roq-encoder no
-@c @set config-rv10-encoder no
-@c @set config-rv20-encoder no
-@c @set config-s302m-encoder no
-@c @set config-sgi-encoder no
-@c @set config-snow-encoder no
-@c @set config-sunrast-encoder no
-@c @set config-svq1-encoder no
-@c @set config-targa-encoder no
-@c @set config-tiff-encoder no
-@c @set config-utvideo-encoder no
-@c @set config-v210-encoder no
-@c @set config-v308-encoder no
-@c @set config-v408-encoder no
-@c @set config-v410-encoder no
-@c @set config-wmv1-encoder no
-@c @set config-wmv2-encoder no
-@c @set config-xbm-encoder no
-@c @set config-xface-encoder no
-@c @set config-xwd-encoder no
-@c @set config-y41p-encoder no
-@c @set config-yuv4-encoder no
-@c @set config-zlib-encoder no
-@c @set config-zmbv-encoder no
+@set config-a64multi-encoder yes
+@set config-a64multi5-encoder yes
+@set config-alias-pix-encoder yes
+@set config-amv-encoder yes
+@set config-asv1-encoder yes
+@set config-asv2-encoder yes
+@set config-avrp-encoder yes
+@set config-avui-encoder yes
+@set config-ayuv-encoder yes
+@set config-bmp-encoder yes
+@set config-cinepak-encoder yes
+@set config-cljr-encoder yes
+@set config-comfortnoise-encoder yes
+@set config-dnxhd-encoder yes
+@set config-dpx-encoder yes
+@set config-dvvideo-encoder yes
+@set config-ffv1-encoder yes
+@set config-ffvhuff-encoder yes
+@set config-flashsv-encoder yes
+@set config-flashsv2-encoder yes
+@set config-flv-encoder yes
+@set config-gif-encoder yes
+@set config-h261-encoder yes
+@set config-h263-encoder yes
+@set config-h263p-encoder yes
+@set config-huffyuv-encoder yes
+@set config-jpeg2000-encoder yes
+@set config-jpegls-encoder yes
+@set config-ljpeg-encoder yes
+@set config-mjpeg-encoder yes
+@set config-mpeg1video-encoder yes
+@set config-mpeg2video-encoder yes
+@set config-mpeg4-encoder yes
+@set config-msmpeg4v2-encoder yes
+@set config-msmpeg4v3-encoder yes
+@set config-msvideo1-encoder yes
+@set config-pam-encoder yes
+@set config-pbm-encoder yes
+@set config-pcx-encoder yes
+@set config-pgm-encoder yes
+@set config-pgmyuv-encoder yes
+@set config-png-encoder yes
+@set config-ppm-encoder yes
+@set config-prores-encoder yes
+@set config-prores-aw-encoder yes
+@set config-prores-ks-encoder yes
+@set config-qtrle-encoder yes
+@set config-r10k-encoder yes
+@set config-r210-encoder yes
+@set config-rawvideo-encoder yes
+@set config-roq-encoder yes
+@set config-rv10-encoder yes
+@set config-rv20-encoder yes
+@set config-s302m-encoder yes
+@set config-sgi-encoder yes
+@set config-snow-encoder yes
+@set config-sunrast-encoder yes
+@set config-svq1-encoder yes
+@set config-targa-encoder yes
+@set config-tiff-encoder yes
+@set config-utvideo-encoder yes
+@set config-v210-encoder yes
+@set config-v308-encoder yes
+@set config-v408-encoder yes
+@set config-v410-encoder yes
+@set config-wmv1-encoder yes
+@set config-wmv2-encoder yes
+@set config-xbm-encoder yes
+@set config-xface-encoder yes
+@set config-xwd-encoder yes
+@set config-y41p-encoder yes
+@set config-yuv4-encoder yes
+@set config-zlib-encoder yes
+@set config-zmbv-encoder yes
 @set config-aac-encoder yes
-@c @set config-ac3-encoder no
-@c @set config-ac3-fixed-encoder no
-@c @set config-alac-encoder no
-@c @set config-dca-encoder no
-@c @set config-eac3-encoder no
-@c @set config-flac-encoder no
-@c @set config-g723-1-encoder no
-@c @set config-mp2-encoder no
-@c @set config-mp2fixed-encoder no
-@c @set config-nellymoser-encoder no
-@c @set config-ra-144-encoder no
-@c @set config-sonic-encoder no
-@c @set config-sonic-ls-encoder no
-@c @set config-tta-encoder no
-@c @set config-vorbis-encoder no
-@c @set config-wavpack-encoder no
-@c @set config-wmav1-encoder no
-@c @set config-wmav2-encoder no
-@c @set config-pcm-alaw-encoder no
-@c @set config-pcm-f32be-encoder no
-@c @set config-pcm-f32le-encoder no
-@c @set config-pcm-f64be-encoder no
-@c @set config-pcm-f64le-encoder no
-@c @set config-pcm-mulaw-encoder no
-@c @set config-pcm-s8-encoder no
-@c @set config-pcm-s8-planar-encoder no
-@c @set config-pcm-s16be-encoder no
-@c @set config-pcm-s16be-planar-encoder no
-@c @set config-pcm-s16le-encoder no
-@c @set config-pcm-s16le-planar-encoder no
-@c @set config-pcm-s24be-encoder no
-@c @set config-pcm-s24daud-encoder no
-@c @set config-pcm-s24le-encoder no
-@c @set config-pcm-s24le-planar-encoder no
-@c @set config-pcm-s32be-encoder no
-@c @set config-pcm-s32le-encoder no
-@c @set config-pcm-s32le-planar-encoder no
-@c @set config-pcm-u8-encoder no
-@c @set config-pcm-u16be-encoder no
-@c @set config-pcm-u16le-encoder no
-@c @set config-pcm-u24be-encoder no
-@c @set config-pcm-u24le-encoder no
-@c @set config-pcm-u32be-encoder no
-@c @set config-pcm-u32le-encoder no
-@c @set config-roq-dpcm-encoder no
-@c @set config-adpcm-adx-encoder no
-@c @set config-adpcm-g722-encoder no
-@c @set config-adpcm-g726-encoder no
-@c @set config-adpcm-ima-qt-encoder no
-@c @set config-adpcm-ima-wav-encoder no
-@c @set config-adpcm-ms-encoder no
-@c @set config-adpcm-swf-encoder no
-@c @set config-adpcm-yamaha-encoder no
-@c @set config-ssa-encoder no
-@c @set config-ass-encoder no
-@c @set config-dvbsub-encoder no
-@c @set config-dvdsub-encoder no
-@c @set config-movtext-encoder no
-@c @set config-srt-encoder no
-@c @set config-subrip-encoder no
-@c @set config-webvtt-encoder no
-@c @set config-xsub-encoder no
+@set config-ac3-encoder yes
+@set config-ac3-fixed-encoder yes
+@set config-alac-encoder yes
+@set config-dca-encoder yes
+@set config-eac3-encoder yes
+@set config-flac-encoder yes
+@set config-g723-1-encoder yes
+@set config-mp2-encoder yes
+@set config-mp2fixed-encoder yes
+@set config-nellymoser-encoder yes
+@set config-ra-144-encoder yes
+@set config-sonic-encoder yes
+@set config-sonic-ls-encoder yes
+@set config-tta-encoder yes
+@set config-vorbis-encoder yes
+@set config-wavpack-encoder yes
+@set config-wmav1-encoder yes
+@set config-wmav2-encoder yes
+@set config-pcm-alaw-encoder yes
+@set config-pcm-f32be-encoder yes
+@set config-pcm-f32le-encoder yes
+@set config-pcm-f64be-encoder yes
+@set config-pcm-f64le-encoder yes
+@set config-pcm-mulaw-encoder yes
+@set config-pcm-s8-encoder yes
+@set config-pcm-s8-planar-encoder yes
+@set config-pcm-s16be-encoder yes
+@set config-pcm-s16be-planar-encoder yes
+@set config-pcm-s16le-encoder yes
+@set config-pcm-s16le-planar-encoder yes
+@set config-pcm-s24be-encoder yes
+@set config-pcm-s24daud-encoder yes
+@set config-pcm-s24le-encoder yes
+@set config-pcm-s24le-planar-encoder yes
+@set config-pcm-s32be-encoder yes
+@set config-pcm-s32le-encoder yes
+@set config-pcm-s32le-planar-encoder yes
+@set config-pcm-u8-encoder yes
+@set config-pcm-u16be-encoder yes
+@set config-pcm-u16le-encoder yes
+@set config-pcm-u24be-encoder yes
+@set config-pcm-u24le-encoder yes
+@set config-pcm-u32be-encoder yes
+@set config-pcm-u32le-encoder yes
+@set config-roq-dpcm-encoder yes
+@set config-adpcm-adx-encoder yes
+@set config-adpcm-g722-encoder yes
+@set config-adpcm-g726-encoder yes
+@set config-adpcm-ima-qt-encoder yes
+@set config-adpcm-ima-wav-encoder yes
+@set config-adpcm-ms-encoder yes
+@set config-adpcm-swf-encoder yes
+@set config-adpcm-yamaha-encoder yes
+@set config-ssa-encoder yes
+@set config-ass-encoder yes
+@set config-dvbsub-encoder yes
+@set config-dvdsub-encoder yes
+@set config-movtext-encoder yes
+@set config-srt-encoder yes
+@set config-subrip-encoder yes
+@set config-webvtt-encoder yes
+@set config-xsub-encoder yes
 @c @set config-libfaac-encoder no
 @c @set config-libfdk-aac-encoder no
 @c @set config-libgsm-encoder no
@@ -1325,7 +1325,7 @@
 @c @set config-libwavpack-encoder no
 @c @set config-libwebp-encoder no
 @set config-libx264-encoder yes
-@c @set config-libx264rgb-encoder no
+@set config-libx264rgb-encoder yes
 @c @set config-libx265-encoder no
 @c @set config-libxavs-encoder no
 @c @set config-libxvid-encoder no
