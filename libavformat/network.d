@@ -14,4 +14,4 @@ libavformat/network.o: libavformat/network.c libavformat/network.h \
  libavcodec/avcodec.h libavutil/samplefmt.h libavutil/avutil.h \
  libavutil/cpu.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/rational.h libavcodec/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavutil/time.h
+ libavcodec/old_codec_ids.h libavutil/mem.h libavutil/time.h

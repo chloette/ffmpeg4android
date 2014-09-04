@@ -11,11 +11,10 @@ libavcodec/hevc_refs.o: libavcodec/hevc_refs.c libavutil/pixdesc.h \
  libavutil/mathematics.h libavutil/avutil.h libavutil/cpu.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/log.h libavutil/rational.h \
- libavcodec/version.h libavutil/version.h libavutil/mem.h \
- libavcodec/old_codec_ids.h libavcodec/thread.h libavcodec/hevc.h \
- libavutil/md5.h libavcodec/bswapdsp.h libavcodec/cabac.h \
- libavcodec/put_bits.h libavutil/intreadwrite.h libavutil/bswap.h \
- libavutil/arm/bswap.h libavutil/arm/intreadwrite.h libavutil/avassert.h \
- libavcodec/get_bits.h libavutil/common.h libavcodec/mathops.h \
- libavcodec/arm/mathops.h libavcodec/hevcpred.h libavcodec/hevcdsp.h \
- libavcodec/videodsp.h
+ libavcodec/version.h libavutil/version.h libavcodec/old_codec_ids.h \
+ libavcodec/thread.h libavcodec/hevc.h libavutil/md5.h \
+ libavcodec/bswapdsp.h libavcodec/cabac.h libavcodec/put_bits.h \
+ libavutil/intreadwrite.h libavutil/bswap.h libavutil/arm/bswap.h \
+ libavutil/arm/intreadwrite.h libavutil/avassert.h libavcodec/get_bits.h \
+ libavutil/common.h libavcodec/mathops.h libavcodec/arm/mathops.h \
+ libavcodec/hevcpred.h libavcodec/hevcdsp.h libavcodec/videodsp.h

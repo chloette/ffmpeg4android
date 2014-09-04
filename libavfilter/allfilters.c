@@ -115,6 +115,7 @@ void avfilter_register_all(void)
     REGISTER_FILTER(BLACKFRAME,     blackframe,     vf);
     REGISTER_FILTER(BLEND,          blend,          vf);
     REGISTER_FILTER(BOXBLUR,        boxblur,        vf);
+    REGISTER_FILTER(CODECVIEW,      codecview,      vf);
     REGISTER_FILTER(COLORBALANCE,   colorbalance,   vf);
     REGISTER_FILTER(COLORCHANNELMIXER, colorchannelmixer, vf);
     REGISTER_FILTER(COLORMATRIX,    colormatrix,    vf);
@@ -156,6 +157,7 @@ void avfilter_register_all(void)
     REGISTER_FILTER(INTERLACE,      interlace,      vf);
     REGISTER_FILTER(INTERLEAVE,     interleave,     vf);
     REGISTER_FILTER(KERNDEINT,      kerndeint,      vf);
+    REGISTER_FILTER(LENSCORRECTION, lenscorrection, vf);
     REGISTER_FILTER(LUT3D,          lut3d,          vf);
     REGISTER_FILTER(LUT,            lut,            vf);
     REGISTER_FILTER(LUTRGB,         lutrgb,         vf);

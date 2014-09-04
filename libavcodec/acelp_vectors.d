@@ -12,4 +12,4 @@ libavcodec/acelp_vectors.o: libavcodec/acelp_vectors.c libavutil/common.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/acelp_vectors.h
+ libavcodec/old_codec_ids.h libavcodec/acelp_vectors.h

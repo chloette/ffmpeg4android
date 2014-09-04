@@ -13,5 +13,5 @@ libavformat/icoenc.o: libavformat/icoenc.c libavutil/intreadwrite.h \
  libavutil/channel_layout.h libavutil/dict.h libavutil/frame.h \
  libavutil/buffer.h libavutil/samplefmt.h libavutil/log.h \
  libavutil/pixfmt.h libavutil/rational.h libavcodec/version.h \
- libavutil/version.h libavutil/mem.h libavcodec/old_codec_ids.h \
- libavformat/avio.h libavutil/common.h libavformat/version.h
+ libavutil/version.h libavcodec/old_codec_ids.h libavformat/avio.h \
+ libavutil/common.h libavformat/version.h

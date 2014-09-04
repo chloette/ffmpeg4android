@@ -46,6 +46,7 @@
 #include "libavutil/random_seed.h"
 #include "libavutil/samplefmt.h"
 #include "libavutil/sha.h"
+#include "libavutil/stereo3d.h"
 
 #include "libavcodec/xiph.h"
 #include "libavcodec/mpeg4audio.h"
@@ -309,7 +310,7 @@ static mkv_seekhead *mkv_start_seekhead(AVIOContext *pb, int64_t segment_offset,
                                         int numelements)
 {
     mkv_seekhead *new_seekhead = av_mallocz(sizeof(mkv_seekhead));
-    if (new_seekhead == NULL)
+    if (!new_seekhead)
         return NULL;
 
     new_seekhead->segment_offset = segment_offset;
@@ -335,7 +336,7 @@ static int mkv_add_seekhead_entry(mkv_seekhead *seekhead, unsigned int elementid
         return -1;
 
     entries = av_realloc_array(entries, seekhead->num_entries + 1, sizeof(mkv_seekhead_entry));
-    if (entries == NULL)
+    if (!entries)
         return AVERROR(ENOMEM);
     seekhead->entries = entries;
 
@@ -401,7 +402,7 @@ fail:
 static mkv_cues *mkv_start_cues(int64_t segment_offset)
 {
     mkv_cues *cues = av_mallocz(sizeof(mkv_cues));
-    if (cues == NULL)
+    if (!cues)
         return NULL;
 
     cues->segment_offset = segment_offset;
@@ -417,7 +418,7 @@ static int mkv_add_cuepoint(mkv_cues *cues, int stream, int tracknum, int64_t ts
         return 0;
 
     entries = av_realloc_array(entries, cues->num_entries + 1, sizeof(mkv_cuepoint));
-    if (entries == NULL)
+    if (!entries)
         return AVERROR(ENOMEM);
     cues->entries = entries;
 
@@ -445,8 +446,21 @@ static int64_t mkv_write_cues(AVFormatContext *s, mkv_cues *cues, mkv_track *tra
         ebml_master cuepoint, track_positions;
         mkv_cuepoint *entry = &cues->entries[i];
         uint64_t pts = entry->pts;
+        int ctp_nb = 0;
 
-        cuepoint = start_ebml_master(pb, MATROSKA_ID_POINTENTRY, MAX_CUEPOINT_SIZE(num_tracks));
+        // Calculate the number of entries, so we know the element size
+        for (j = 0; j < num_tracks; j++)
+            tracks[j].has_cue = 0;
+        for (j = 0; j < cues->num_entries - i && entry[j].pts == pts; j++) {
+            int tracknum = entry[j].stream_idx;
+            av_assert0(tracknum>=0 && tracknum<num_tracks);
+            if (tracks[tracknum].has_cue && s->streams[tracknum]->codec->codec_type != AVMEDIA_TYPE_SUBTITLE)
+                continue;
+            tracks[tracknum].has_cue = 1;
+            ctp_nb ++;
+        }
+
+        cuepoint = start_ebml_master(pb, MATROSKA_ID_POINTENTRY, MAX_CUEPOINT_SIZE(ctp_nb));
         put_ebml_uint(pb, MATROSKA_ID_CUETIME, pts);
 
         // put all the entries from different tracks that have the exact same
@@ -680,18 +694,96 @@ static int mkv_write_codecprivate(AVFormatContext *s, AVIOContext *pb,
     return ret;
 }
 
-static int mkv_write_stereo_mode(AVFormatContext *s, AVIOContext *pb, int st_mode,
-                                  int mode)
+
+static int mkv_write_stereo_mode(AVFormatContext *s, AVIOContext *pb,
+                                 AVStream *st, int mode)
 {
-    if ((mode == MODE_WEBM && st_mode > 3 && st_mode != 11)
-        || st_mode >= MATROSKA_VIDEO_STEREO_MODE_COUNT) {
+    int i;
+    int ret = 0;
+    AVDictionaryEntry *tag;
+    MatroskaVideoStereoModeType format = MATROSKA_VIDEO_STEREOMODE_TYPE_NB;
+
+    // convert metadata into proper side data and add it to the stream
+    if ((tag = av_dict_get(st->metadata, "stereo_mode", NULL, 0)) ||
+        (tag = av_dict_get( s->metadata, "stereo_mode", NULL, 0))) {
+        int stereo_mode = atoi(tag->value);
+
+        for (i=0; i<MATROSKA_VIDEO_STEREOMODE_TYPE_NB; i++)
+            if (!strcmp(tag->value, ff_matroska_video_stereo_mode[i])){
+                stereo_mode = i;
+                break;
+            }
+
+        if (stereo_mode < MATROSKA_VIDEO_STEREOMODE_TYPE_NB &&
+            stereo_mode != 10 && stereo_mode != 12) {
+            int ret = ff_mkv_stereo3d_conv(st, stereo_mode);
+            if (ret < 0)
+                return ret;
+        }
+    }
+
+    for (i = 0; i < st->nb_side_data; i++) {
+        AVPacketSideData sd = st->side_data[i];
+        if (sd.type == AV_PKT_DATA_STEREO3D) {
+            AVStereo3D *stereo = (AVStereo3D *)sd.data;
+
+            switch (stereo->type) {
+            case AV_STEREO3D_2D:
+                format = MATROSKA_VIDEO_STEREOMODE_TYPE_MONO;
+                break;
+            case AV_STEREO3D_SIDEBYSIDE:
+                format = (stereo->flags & AV_STEREO3D_FLAG_INVERT)
+                    ? MATROSKA_VIDEO_STEREOMODE_TYPE_RIGHT_LEFT
+                    : MATROSKA_VIDEO_STEREOMODE_TYPE_LEFT_RIGHT;
+                break;
+            case AV_STEREO3D_TOPBOTTOM:
+                format = MATROSKA_VIDEO_STEREOMODE_TYPE_TOP_BOTTOM;
+                if (stereo->flags & AV_STEREO3D_FLAG_INVERT)
+                    format--;
+                break;
+            case AV_STEREO3D_CHECKERBOARD:
+                format = MATROSKA_VIDEO_STEREOMODE_TYPE_CHECKERBOARD_LR;
+                if (stereo->flags & AV_STEREO3D_FLAG_INVERT)
+                    format--;
+                break;
+            case AV_STEREO3D_LINES:
+                format = MATROSKA_VIDEO_STEREOMODE_TYPE_ROW_INTERLEAVED_LR;
+                if (stereo->flags & AV_STEREO3D_FLAG_INVERT)
+                    format--;
+                break;
+            case AV_STEREO3D_COLUMNS:
+                format = MATROSKA_VIDEO_STEREOMODE_TYPE_COL_INTERLEAVED_LR;
+                if (stereo->flags & AV_STEREO3D_FLAG_INVERT)
+                    format--;
+                break;
+            case AV_STEREO3D_FRAMESEQUENCE:
+                format = MATROSKA_VIDEO_STEREOMODE_TYPE_BOTH_EYES_BLOCK_LR;
+                if (stereo->flags & AV_STEREO3D_FLAG_INVERT)
+                    format++;
+                break;
+            }
+            ret = stereo->type;
+
+            break;
+        }
+    }
+
+    if (format == MATROSKA_VIDEO_STEREOMODE_TYPE_NB)
+        return ret;
+
+    if ((mode == MODE_WEBM &&
+        format > MATROSKA_VIDEO_STEREOMODE_TYPE_TOP_BOTTOM &&
+        format != MATROSKA_VIDEO_STEREOMODE_TYPE_RIGHT_LEFT)
+        || format >= MATROSKA_VIDEO_STEREOMODE_TYPE_NB) {
         av_log(s, AV_LOG_ERROR,
                "The specified stereo mode is not valid.\n");
+        format = MATROSKA_VIDEO_STEREOMODE_TYPE_NB;
         return AVERROR(EINVAL);
-    } else
-        put_ebml_uint(pb, MATROSKA_ID_VIDEOSTEREOMODE, st_mode);
+    }
 
-    return 0;
+    put_ebml_uint(pb, MATROSKA_ID_VIDEOSTEREOMODE, format);
+
+    return ret;
 }
 
 static int mkv_write_track(AVFormatContext *s, MatroskaMuxContext *mkv,
@@ -737,7 +829,7 @@ static int mkv_write_track(AVFormatContext *s, MatroskaMuxContext *mkv,
         put_ebml_string(pb, MATROSKA_ID_TRACKNAME, tag->value);
     tag = av_dict_get(st->metadata, "language", NULL, 0);
     if (mkv->mode != MODE_WEBM || codec->codec_id != AV_CODEC_ID_WEBVTT) {
-        put_ebml_string(pb, MATROSKA_ID_TRACKLANGUAGE, tag ? tag->value:"und");
+        put_ebml_string(pb, MATROSKA_ID_TRACKLANGUAGE, tag && tag->value ? tag->value:"und");
     } else if (tag && tag->value) {
         put_ebml_string(pb, MATROSKA_ID_TRACKLANGUAGE, tag->value);
     }
@@ -832,37 +924,25 @@ static int mkv_write_track(AVFormatContext *s, MatroskaMuxContext *mkv,
         put_ebml_uint (pb, MATROSKA_ID_VIDEOPIXELWIDTH , codec->width);
         put_ebml_uint (pb, MATROSKA_ID_VIDEOPIXELHEIGHT, codec->height);
 
-        if ((tag = av_dict_get(st->metadata, "stereo_mode", NULL, 0)) ||
-            (tag = av_dict_get( s->metadata, "stereo_mode", NULL, 0))) {
-            int st_mode = MATROSKA_VIDEO_STEREO_MODE_COUNT;
+        // check both side data and metadata for stereo information,
+        // write the result to the bitstream if any is found
+        ret = mkv_write_stereo_mode(s, pb, st, mkv->mode);
+        if (ret < 0)
+            return ret;
 
-            for (j=0; j<MATROSKA_VIDEO_STEREO_MODE_COUNT; j++)
-                if (!strcmp(tag->value, ff_matroska_video_stereo_mode[j])){
-                    st_mode = j;
-                    break;
-                }
-
-            if (mkv_write_stereo_mode(s, pb, st_mode, mkv->mode) < 0)
-                return AVERROR(EINVAL);
-
-            switch (st_mode) {
-            case 1:
-            case 8:
-            case 9:
-            case 11:
-                display_width_div = 2;
-                break;
-            case 2:
-            case 3:
-            case 6:
-            case 7:
-                display_height_div = 2;
-                break;
-            }
+        switch (ret) {
+        case AV_STEREO3D_SIDEBYSIDE:
+        case AV_STEREO3D_COLUMNS:
+            display_width_div = 2;
+            break;
+        case AV_STEREO3D_TOPBOTTOM:
+        case AV_STEREO3D_LINES:
+            display_height_div = 2;
+            break;
         }
 
-        if ((tag = av_dict_get(st->metadata, "alpha_mode", NULL, 0)) ||
-            (tag = av_dict_get( s->metadata, "alpha_mode", NULL, 0)) ||
+        if (((tag = av_dict_get(st->metadata, "alpha_mode", NULL, 0)) && atoi(tag->value)) ||
+            ((tag = av_dict_get( s->metadata, "alpha_mode", NULL, 0)) && atoi(tag->value)) ||
             (codec->pix_fmt == AV_PIX_FMT_YUVA420P)) {
             put_ebml_uint(pb, MATROSKA_ID_VIDEOALPHAMODE, 1);
         }
@@ -1323,7 +1403,7 @@ static int mkv_write_header(AVFormatContext *s)
         mkv_write_seekhead(pb, mkv->main_seekhead);
 
     mkv->cues = mkv_start_cues(mkv->segment_offset);
-    if (mkv->cues == NULL)
+    if (!mkv->cues)
         return AVERROR(ENOMEM);
 
     if (pb->seekable && mkv->reserve_cues_space) {
@@ -1668,6 +1748,28 @@ static void mkv_flush_dynbuf(AVFormatContext *s)
     mkv->dyn_bc = NULL;
 }
 
+static void mkv_start_new_cluster(AVFormatContext *s, AVPacket *pkt)
+{
+    MatroskaMuxContext *mkv = s->priv_data;
+    AVIOContext *pb;
+
+    if (s->pb->seekable) {
+        pb = s->pb;
+    } else {
+        pb = mkv->dyn_bc;
+    }
+
+    av_log(s, AV_LOG_DEBUG,
+            "Starting new cluster at offset %" PRIu64 " bytes, "
+            "pts %" PRIu64 "dts %" PRIu64 "\n",
+            avio_tell(pb), pkt->pts, pkt->dts);
+    end_ebml_master(pb, mkv->cluster);
+    mkv->cluster_pos = -1;
+    if (mkv->dyn_bc)
+        mkv_flush_dynbuf(s);
+    avio_flush(s->pb);
+}
+
 static int mkv_write_packet_internal(AVFormatContext *s, AVPacket *pkt, int add_cue)
 {
     MatroskaMuxContext *mkv = s->priv_data;
@@ -1686,6 +1788,14 @@ static int mkv_write_packet_internal(AVFormatContext *s, AVPacket *pkt, int add_
         return AVERROR(EINVAL);
     }
     ts += mkv->tracks[pkt->stream_index].ts_offset;
+
+    if (mkv->cluster_pos != -1) {
+        int64_t cluster_time = ts - mkv->cluster_pts + mkv->tracks[pkt->stream_index].ts_offset;
+        if ((int16_t)cluster_time != cluster_time) {
+            av_log(s, AV_LOG_WARNING, "Starting new cluster due to timestamp\n");
+            mkv_start_new_cluster(s, pkt);
+        }
+    }
 
     if (!s->pb->seekable) {
         if (!mkv->dyn_bc) {
@@ -1755,7 +1865,6 @@ static int mkv_write_packet(AVFormatContext *s, AVPacket *pkt)
     int keyframe            = !!(pkt->flags & AV_PKT_FLAG_KEY);
     int cluster_size;
     int64_t cluster_time;
-    AVIOContext *pb;
     int ret;
     int start_new_cluster;
 
@@ -1768,11 +1877,9 @@ static int mkv_write_packet(AVFormatContext *s, AVPacket *pkt)
     // start a new cluster every 5 MB or 5 sec, or 32k / 1 sec for streaming or
     // after 4k and on a keyframe
     if (s->pb->seekable) {
-        pb = s->pb;
-        cluster_size = avio_tell(pb) - mkv->cluster_pos;
+        cluster_size = avio_tell(s->pb) - mkv->cluster_pos;
     } else {
-        pb = mkv->dyn_bc;
-        cluster_size = avio_tell(pb);
+        cluster_size = avio_tell(mkv->dyn_bc);
     }
 
     if (mkv->is_dash && codec_type == AVMEDIA_TYPE_VIDEO) {
@@ -1795,15 +1902,7 @@ static int mkv_write_packet(AVFormatContext *s, AVPacket *pkt)
     }
 
     if (mkv->cluster_pos != -1 && start_new_cluster) {
-        av_log(s, AV_LOG_DEBUG,
-               "Starting new cluster at offset %" PRIu64 " bytes, "
-               "pts %" PRIu64 "dts %" PRIu64 "\n",
-               avio_tell(pb), pkt->pts, pkt->dts);
-        end_ebml_master(pb, mkv->cluster);
-        mkv->cluster_pos = -1;
-        if (mkv->dyn_bc)
-            mkv_flush_dynbuf(s);
-        avio_flush(s->pb);
+        mkv_start_new_cluster(s, pkt);
     }
 
     // check if we have an audio packet cached

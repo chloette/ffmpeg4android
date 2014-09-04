@@ -12,9 +12,9 @@ libavcodec/aacps.o: libavcodec/aacps.c libavutil/common.h \
  libavutil/channel_layout.h libavutil/dict.h libavutil/frame.h \
  libavutil/buffer.h libavutil/samplefmt.h libavutil/log.h \
  libavutil/pixfmt.h libavutil/rational.h libavcodec/version.h \
- libavutil/version.h libavutil/mem.h libavcodec/old_codec_ids.h \
- libavcodec/get_bits.h libavutil/intreadwrite.h libavutil/bswap.h \
- libavutil/arm/bswap.h libavutil/arm/intreadwrite.h libavutil/avassert.h \
- libavcodec/mathops.h libavcodec/arm/mathops.h libavcodec/aacps.h \
- libavcodec/aacpsdsp.h libavcodec/aacps_tablegen.h libavutil/libm.h \
+ libavutil/version.h libavcodec/old_codec_ids.h libavcodec/get_bits.h \
+ libavutil/intreadwrite.h libavutil/bswap.h libavutil/arm/bswap.h \
+ libavutil/arm/intreadwrite.h libavutil/avassert.h libavcodec/mathops.h \
+ libavcodec/arm/mathops.h libavcodec/aacps.h libavcodec/aacpsdsp.h \
+ libavcodec/aacps_tablegen.h libavutil/libm.h libavutil/mem.h \
  libavcodec/aacpsdata.c

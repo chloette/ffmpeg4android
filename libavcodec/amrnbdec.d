@@ -5,13 +5,13 @@ libavcodec/amrnbdec.o: libavcodec/amrnbdec.c libavutil/channel_layout.h \
  libavutil/avconfig.h libavutil/intmath.h libavutil/arm/intmath.h \
  libavutil/attributes.h libavutil/mem.h libavutil/error.h \
  libavutil/internal.h libavutil/timer.h libavutil/log.h \
- libavutil/arm/timer.h libavutil/cpu.h libavutil/dict.h libavutil/libm.h \
+ libavutil/arm/timer.h libavutil/cpu.h libavutil/dict.h \
+ libavutil/pixfmt.h libavutil/old_pix_fmts.h libavutil/libm.h \
  libavutil/intfloat.h libavutil/rational.h libavutil/mathematics.h \
- libavutil/pixfmt.h libavutil/old_pix_fmts.h libavutil/avutil.h \
- libavutil/buffer.h libavutil/cpu.h libavutil/dict.h libavutil/frame.h \
- libavutil/buffer.h libavutil/samplefmt.h libavutil/log.h \
- libavutil/pixfmt.h libavutil/rational.h libavcodec/version.h \
- libavutil/version.h libavutil/mem.h libavcodec/old_codec_ids.h \
+ libavutil/avutil.h libavutil/buffer.h libavutil/cpu.h libavutil/dict.h \
+ libavutil/frame.h libavutil/buffer.h libavutil/samplefmt.h \
+ libavutil/log.h libavutil/pixfmt.h libavutil/rational.h \
+ libavcodec/version.h libavutil/version.h libavcodec/old_codec_ids.h \
  libavutil/common.h libavutil/avassert.h libavcodec/celp_math.h \
  libavcodec/celp_filters.h libavcodec/acelp_filters.h \
  libavcodec/acelp_vectors.h libavcodec/acelp_pitch_delay.h \

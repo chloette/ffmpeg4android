@@ -5,7 +5,7 @@ includedir=${pcfiledir}/../../..
 
 Name: libavutil
 Description: FFmpeg utility library
-Version: 52.92.100
+Version: 54.7.100
 Requires: 
 Conflicts:
 Libs: -L${libdir} -Wl,-rpath,${libdir} -lavutil 

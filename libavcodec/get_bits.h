@@ -113,6 +113,9 @@ typedef struct RL_VLC_ELEM {
  * LAST_SKIP_BITS(name, gb, num)
  *   Like SKIP_BITS, to be used if next call is UPDATE_CACHE or CLOSE_READER.
  *
+ * BITS_LEFT(name, gb)
+ *   Return the number of bits left
+ *
  * For examples see get_bits, show_bits, skip_bits, get_vlc.
  */
 
@@ -127,14 +130,14 @@ typedef struct RL_VLC_ELEM {
     unsigned int name ## _index = (gb)->index;  \
     unsigned int av_unused name ## _cache
 
-#define HAVE_BITS_REMAINING(name, gb) 1
+#define BITS_AVAILABLE(name, gb) 1
 #else
 #define OPEN_READER(name, gb)                   \
     unsigned int name ## _index = (gb)->index;  \
     unsigned int av_unused name ## _cache = 0;  \
     unsigned int av_unused name ## _size_plus8 = (gb)->size_in_bits_plus8
 
-#define HAVE_BITS_REMAINING(name, gb) name ## _index < name ## _size_plus8
+#define BITS_AVAILABLE(name, gb) name ## _index < name ## _size_plus8
 #endif
 
 #define CLOSE_READER(name, gb) (gb)->index = name ## _index
@@ -178,6 +181,8 @@ typedef struct RL_VLC_ELEM {
 #   define SKIP_COUNTER(name, gb, num) \
     name ## _index = FFMIN(name ## _size_plus8, name ## _index + (num))
 #endif
+
+#define BITS_LEFT(name, gb) ((int)((gb)->size_in_bits - name ## _index))
 
 #define SKIP_BITS(name, gb, num)                \
     do {                                        \
@@ -408,7 +413,7 @@ static inline int init_get_bits(GetBitContext *s, const uint8_t *buffer,
     int ret = 0;
 
     if (bit_size >= INT_MAX - 7 || bit_size < 0 || !buffer) {
-        buffer_size = bit_size = 0;
+        bit_size    = 0;
         buffer      = NULL;
         ret         = AVERROR_INVALIDDATA;
     }

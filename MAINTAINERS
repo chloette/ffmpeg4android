@@ -54,7 +54,7 @@ release management                      Michael Niedermayer
 Communication
 =============
 
-website                                 Robert Swain
+website                                 Deby Barbara Lepage
 fate.ffmpeg.org                         Timothy Gu
 Trac bug tracker                        Alexander Strasser, Michael Niedermayer, Carl Eugen Hoyos, Lou Logan
 mailing lists                           Michael Niedermayer, Baptiste Coudurier, Lou Logan
@@ -354,6 +354,7 @@ Filters:
   vf_histogram.c                        Paul B Mahol
   vf_hqx.c                              Clément Bœsch
   vf_il.c                               Paul B Mahol
+  vf_lenscorrection.c                   Daniel Oberhoff
   vf_mergeplanes.c                      Paul B Mahol
   vf_psnr.c                             Paul B Mahol
   vf_scale.c                            Michael Niedermayer
@@ -458,6 +459,8 @@ Muxers/Demuxers:
   rmdec.c, rmenc.c                      Ronald S. Bultje, Kostya Shishkov
   rtmp*                                 Kostya Shishkov
   rtp.c, rtpenc.c                       Martin Storsjo
+  rtpdec_h261.*, rtpenc_h261.*          Thomas Volkert
+  rtpdec_hevc.*                         Thomas Volkert
   rtpdec_asf.*                          Ronald S. Bultje
   rtpenc_mpv.*, rtpenc_aac.*            Martin Storsjo
   rtsp.c                                Luca Barbato
@@ -528,8 +531,8 @@ x86                                     Michael Niedermayer
 Releases
 ========
 
+2.3                                     Michael Niedermayer
 2.2                                     Michael Niedermayer
-2.1                                     Michael Niedermayer
 1.2                                     Michael Niedermayer
 
 If you want to maintain an older release, please contact us

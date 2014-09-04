@@ -16,8 +16,8 @@ libavformat/hevc.o: libavformat/hevc.c libavcodec/get_bits.h \
  libavutil/channel_layout.h libavutil/dict.h libavutil/frame.h \
  libavutil/buffer.h libavutil/samplefmt.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/bswapdsp.h \
- libavcodec/cabac.h libavcodec/hevcpred.h libavcodec/hevcdsp.h \
- libavcodec/internal.h libavutil/mathematics.h libavcodec/thread.h \
- libavcodec/videodsp.h libavformat/avc.h libavformat/avio.h \
- libavformat/version.h libavformat/hevc.h
+ libavcodec/old_codec_ids.h libavcodec/bswapdsp.h libavcodec/cabac.h \
+ libavcodec/hevcpred.h libavcodec/hevcdsp.h libavcodec/internal.h \
+ libavutil/mathematics.h libavcodec/thread.h libavcodec/videodsp.h \
+ libavformat/avc.h libavformat/avio.h libavformat/version.h \
+ libavformat/hevc.h

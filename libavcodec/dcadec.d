@@ -14,7 +14,7 @@ libavcodec/dcadec.o: libavcodec/dcadec.c libavutil/channel_layout.h \
  libavutil/buffer.h libavutil/cpu.h libavutil/dict.h libavutil/frame.h \
  libavutil/buffer.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/fft.h \
+ libavcodec/old_codec_ids.h libavcodec/fft.h libavutil/mem.h \
  libavcodec/avfft.h libavcodec/get_bits.h libavutil/avassert.h \
  libavcodec/mathops.h libavcodec/arm/mathops.h libavcodec/dcadata.h \
  libavcodec/dcahuff.h libavcodec/dca.h libavcodec/synth_filter.h \

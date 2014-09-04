@@ -12,7 +12,7 @@ libavformat/mms.o: libavformat/mms.c libavformat/mms.h libavformat/url.h \
  libavutil/samplefmt.h libavutil/avutil.h libavutil/buffer.h \
  libavutil/cpu.h libavutil/channel_layout.h libavutil/frame.h \
  libavutil/buffer.h libavutil/samplefmt.h libavutil/pixfmt.h \
- libavutil/rational.h libavcodec/version.h libavutil/mem.h \
- libavcodec/old_codec_ids.h libavformat/metadata.h libavformat/riff.h \
- libavformat/internal.h libavutil/intreadwrite.h libavutil/bswap.h \
- libavutil/arm/bswap.h libavutil/arm/intreadwrite.h
+ libavutil/rational.h libavcodec/version.h libavcodec/old_codec_ids.h \
+ libavformat/metadata.h libavformat/riff.h libavformat/internal.h \
+ libavutil/intreadwrite.h libavutil/bswap.h libavutil/arm/bswap.h \
+ libavutil/arm/intreadwrite.h

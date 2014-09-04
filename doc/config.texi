@@ -30,6 +30,7 @@
 @set have-neon yes
 @set have-vfp yes
 @set have-vfpv3 yes
+@set have-setend yes
 @c @set have-altivec no
 @set have-dcbzl yes
 @set have-ldbrx yes
@@ -64,6 +65,7 @@
 @c @set have-neon-external no
 @set have-vfp-external yes
 @c @set have-vfpv3-external no
+@c @set have-setend-external no
 @c @set have-altivec-external no
 @c @set have-dcbzl-external no
 @c @set have-ldbrx-external no
@@ -98,6 +100,7 @@
 @c @set have-neon-inline no
 @c @set have-vfp-inline no
 @c @set have-vfpv3-inline no
+@c @set have-setend-inline no
 @c @set have-altivec-inline no
 @c @set have-dcbzl-inline no
 @c @set have-ldbrx-inline no
@@ -132,6 +135,7 @@
 @c @set have-local-aligned-8 no
 @c @set have-local-aligned-16 no
 @c @set have-local-aligned-32 no
+@set have-simd-align-16 yes
 @set have-atomics-gcc yes
 @c @set have-atomics-suncc no
 @c @set have-atomics-win32 no
@@ -187,6 +191,7 @@
 @set have-unistd-h yes
 @c @set have-windows-h no
 @c @set have-winsock2-h no
+@c @set have-intrinsics-neon no
 @set have-atanf yes
 @set have-atan2f yes
 @set have-cbrt yes
@@ -307,6 +312,7 @@
 @c @set have-libdc1394-1 no
 @c @set have-libdc1394-2 no
 @c @set have-makeinfo no
+@c @set have-makeinfo-html no
 @set have-perl yes
 @set have-pod2man yes
 @c @set have-sdl no
@@ -333,6 +339,7 @@
 @set config-avio-reading-example yes
 @set config-decoding-encoding-example yes
 @set config-demuxing-decoding-example yes
+@set config-extract-mvs-example yes
 @set config-filter-audio-example yes
 @set config-filtering-audio-example yes
 @set config-filtering-video-example yes
@@ -404,6 +411,7 @@
 @c @set config-libxvid no
 @c @set config-libzmq no
 @c @set config-libzvbi no
+@c @set config-lzma no
 @c @set config-openal no
 @c @set config-opencl no
 @c @set config-opengl no
@@ -418,7 +426,6 @@
 @set config-safe-bitstream-reader yes
 @set config-shared yes
 @c @set config-small no
-@c @set config-sram no
 @c @set config-static no
 @set config-swscale-alpha yes
 @c @set config-dxva2 no
@@ -450,6 +457,7 @@
 @set config-lsp yes
 @set config-lzo yes
 @set config-mdct yes
+@set config-pixelutils yes
 @set config-network yes
 @set config-rdft yes
 @c @set config-fontconfig no
@@ -469,7 +477,6 @@
 @set config-blockdsp yes
 @set config-bswapdsp yes
 @set config-cabac yes
-@set config-dsputil yes
 @set config-dvprofile yes
 @set config-exif yes
 @set config-fdctdsp yes
@@ -487,11 +494,13 @@
 @set config-huffyuvdsp yes
 @c @set config-huffyuvencdsp no
 @set config-idctdsp yes
+@set config-iirfilter yes
 @set config-intrax8 yes
 @c @set config-lgplv3 no
 @set config-llauddsp yes
 @set config-llviddsp yes
 @c @set config-lpc no
+@set config-me-cmp yes
 @set config-mpeg-er yes
 @set config-mpegaudio yes
 @set config-mpegaudiodsp yes
@@ -506,6 +515,7 @@
 @set config-rtpdec yes
 @set config-rtpenc-chain yes
 @set config-sinewin yes
+@set config-startcode yes
 @set config-tpeldsp yes
 @set config-videodsp yes
 @set config-vp3dsp yes
@@ -1144,11 +1154,13 @@
 @set config-image-dpx-pipe-demuxer yes
 @set config-image-exr-pipe-demuxer yes
 @set config-image-j2k-pipe-demuxer yes
+@set config-image-jpegls-pipe-demuxer yes
 @set config-image-pictor-pipe-demuxer yes
 @set config-image-png-pipe-demuxer yes
 @set config-image-sgi-pipe-demuxer yes
 @set config-image-sunrast-pipe-demuxer yes
 @set config-image-tiff-pipe-demuxer yes
+@set config-image-webp-pipe-demuxer yes
 @c @set config-libgme-demuxer no
 @c @set config-libmodplug-demuxer no
 @c @set config-libnut-demuxer no
@@ -1383,6 +1395,7 @@
 @set config-blackframe-filter yes
 @set config-blend-filter yes
 @set config-boxblur-filter yes
+@set config-codecview-filter yes
 @set config-colorbalance-filter yes
 @set config-colorchannelmixer-filter yes
 @set config-colormatrix-filter yes
@@ -1424,6 +1437,7 @@
 @set config-interlace-filter yes
 @set config-interleave-filter yes
 @set config-kerndeint-filter yes
+@set config-lenscorrection-filter yes
 @set config-lut3d-filter yes
 @set config-lut-filter yes
 @set config-lutrgb-filter yes
@@ -1660,8 +1674,8 @@
 @set config-smjpeg-muxer yes
 @set config-smoothstreaming-muxer yes
 @set config-sox-muxer yes
+@set config-spx-muxer yes
 @set config-spdif-muxer yes
-@set config-speex-muxer yes
 @set config-srt-muxer yes
 @set config-swf-muxer yes
 @set config-tee-muxer yes
@@ -1743,6 +1757,7 @@
 @set config-http-protocol yes
 @set config-httpproxy-protocol yes
 @c @set config-https-protocol no
+@set config-icecast-protocol yes
 @set config-mmsh-protocol yes
 @set config-mmst-protocol yes
 @set config-md5-protocol yes

@@ -6,4 +6,4 @@ libavutil/avstring.o: libavutil/avstring.c config.h libavutil/common.h \
  libavutil/intfloat.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/old_pix_fmts.h libavutil/internal.h libavutil/timer.h \
  libavutil/arm/timer.h libavutil/cpu.h libavutil/dict.h libavutil/libm.h \
- libavutil/avstring.h libavutil/bprint.h
+ libavutil/avassert.h libavutil/avstring.h libavutil/bprint.h

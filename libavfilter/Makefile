@@ -97,6 +97,7 @@ OBJS-$(CONFIG_BLACKDETECT_FILTER)            += vf_blackdetect.o
 OBJS-$(CONFIG_BLACKFRAME_FILTER)             += vf_blackframe.o
 OBJS-$(CONFIG_BLEND_FILTER)                  += vf_blend.o dualinput.o framesync.o
 OBJS-$(CONFIG_BOXBLUR_FILTER)                += vf_boxblur.o
+OBJS-$(CONFIG_CODECVIEW_FILTER)              += vf_codecview.o
 OBJS-$(CONFIG_COLORBALANCE_FILTER)           += vf_colorbalance.o
 OBJS-$(CONFIG_COLORCHANNELMIXER_FILTER)      += vf_colorchannelmixer.o
 OBJS-$(CONFIG_COLORMATRIX_FILTER)            += vf_colormatrix.o
@@ -138,6 +139,7 @@ OBJS-$(CONFIG_IL_FILTER)                     += vf_il.o
 OBJS-$(CONFIG_INTERLACE_FILTER)              += vf_interlace.o
 OBJS-$(CONFIG_INTERLEAVE_FILTER)             += f_interleave.o
 OBJS-$(CONFIG_KERNDEINT_FILTER)              += vf_kerndeint.o
+OBJS-$(CONFIG_LENSCORRECTION_FILTER)         += vf_lenscorrection.o
 OBJS-$(CONFIG_LUT3D_FILTER)                  += vf_lut3d.o
 OBJS-$(CONFIG_LUT_FILTER)                    += vf_lut.o
 OBJS-$(CONFIG_LUTRGB_FILTER)                 += vf_lut.o
@@ -243,6 +245,7 @@ SKIPHEADERS-$(CONFIG_LIBVIDSTAB)             += vidstabutils.h
 SKIPHEADERS-$(CONFIG_OPENCL)                 += opencl_internal.h deshake_opencl_kernel.h unsharp_opencl_kernel.h
 
 OBJS-$(HAVE_THREADS)                         += pthread.o
+OBJS-$(CONFIG_SHARED)                        += log2_tab.o
 
 TOOLS     = graph2dot
 TESTPROGS = drawutils filtfmts formats

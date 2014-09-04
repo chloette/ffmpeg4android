@@ -12,10 +12,10 @@ libavcodec/mpeg12dec.o: libavcodec/mpeg12dec.c libavutil/attributes.h \
  libavutil/cpu.h libavutil/channel_layout.h libavutil/dict.h \
  libavutil/frame.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavcodec/bytestream.h \
- libavutil/avassert.h libavutil/common.h libavutil/intreadwrite.h \
- libavutil/bswap.h libavutil/arm/bswap.h libavutil/arm/intreadwrite.h \
- libavcodec/error_resilience.h libavcodec/dsputil.h libavcodec/thread.h \
+ libavcodec/old_codec_ids.h libavcodec/bytestream.h libavutil/avassert.h \
+ libavutil/common.h libavutil/intreadwrite.h libavutil/bswap.h \
+ libavutil/arm/bswap.h libavutil/arm/intreadwrite.h \
+ libavcodec/error_resilience.h libavcodec/me_cmp.h libavcodec/thread.h \
  libavcodec/idctdsp.h libavcodec/internal.h libavutil/mathematics.h \
  libavcodec/mpeg_er.h libavcodec/mpegvideo.h libavcodec/blockdsp.h \
  libavcodec/fdctdsp.h libavcodec/get_bits.h libavcodec/mathops.h \

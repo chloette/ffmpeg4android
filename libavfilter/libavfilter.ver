@@ -1,5 +1,4 @@
-LIBAVFILTER_4 {
+LIBAVFILTER_5 {
         global: avfilter_*; av_*;
-            ff_default_query_formats;
         local: *;
 };

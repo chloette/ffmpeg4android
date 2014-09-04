@@ -4,12 +4,12 @@ libavfilter/vsrc_testsrc.o: libavfilter/vsrc_testsrc.c \
  libavutil/avconfig.h config.h libavutil/intmath.h \
  libavutil/arm/intmath.h libavutil/attributes.h libavutil/mem.h \
  libavutil/error.h libavutil/internal.h libavutil/timer.h libavutil/log.h \
- libavutil/arm/timer.h libavutil/cpu.h libavutil/dict.h libavutil/libm.h \
+ libavutil/arm/timer.h libavutil/cpu.h libavutil/dict.h \
+ libavutil/pixfmt.h libavutil/old_pix_fmts.h libavutil/libm.h \
  libavutil/intfloat.h libavutil/rational.h libavutil/mathematics.h \
- libavutil/pixfmt.h libavutil/old_pix_fmts.h libavutil/common.h \
- libavutil/opt.h libavutil/samplefmt.h libavutil/imgutils.h \
- libavutil/pixdesc.h libavutil/intreadwrite.h libavutil/bswap.h \
- libavutil/arm/bswap.h libavutil/arm/intreadwrite.h \
+ libavutil/common.h libavutil/opt.h libavutil/samplefmt.h \
+ libavutil/imgutils.h libavutil/pixdesc.h libavutil/intreadwrite.h \
+ libavutil/bswap.h libavutil/arm/bswap.h libavutil/arm/intreadwrite.h \
  libavutil/parseutils.h libavfilter/avfilter.h libavutil/avutil.h \
  libavutil/dict.h libavutil/frame.h libavutil/buffer.h libavutil/log.h \
  libavutil/samplefmt.h libavutil/pixfmt.h libavutil/rational.h \

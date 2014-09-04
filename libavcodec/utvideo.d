@@ -11,6 +11,5 @@ libavcodec/utvideo.o: libavcodec/utvideo.c libavcodec/utvideo.h \
  libavutil/cpu.h libavutil/channel_layout.h libavutil/dict.h \
  libavutil/frame.h libavutil/buffer.h libavutil/samplefmt.h \
  libavutil/log.h libavutil/pixfmt.h libavutil/rational.h \
- libavcodec/version.h libavutil/version.h libavutil/mem.h \
- libavcodec/old_codec_ids.h libavcodec/bswapdsp.h \
- libavcodec/huffyuvencdsp.h
+ libavcodec/version.h libavutil/version.h libavcodec/old_codec_ids.h \
+ libavcodec/bswapdsp.h libavcodec/huffyuvencdsp.h

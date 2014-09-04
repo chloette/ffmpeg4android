@@ -13,5 +13,5 @@ libavformat/psxstr.o: libavformat/psxstr.c libavutil/channel_layout.h \
  libavutil/cpu.h libavutil/dict.h libavutil/frame.h libavutil/buffer.h \
  libavutil/samplefmt.h libavutil/log.h libavutil/pixfmt.h \
  libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavutil/mem.h libavcodec/old_codec_ids.h libavformat/avio.h \
- libavutil/common.h libavformat/version.h libavformat/internal.h
+ libavcodec/old_codec_ids.h libavformat/avio.h libavutil/common.h \
+ libavformat/version.h libavformat/internal.h
