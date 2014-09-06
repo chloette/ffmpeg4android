@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>FFmpeg4android by chloette</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>FFmpeg4android</h1>
+        <h2>Base of &quot;X&quot;</h2>
+        <a href="https://github.com/chloette/ffmpeg4android" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="ffmpeg4android-readme" class="anchor" href="#ffmpeg4android-readme"><span class="octicon octicon-link"></span></a>ffmpeg4android README</h1>
+
+<p>(FFmpeg README is listed below)
+ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg modules (without bins) and X264 encoders.</p>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<ol>
+<li>Download <a href="https://developer.android.com/tools/sdk/ndk/index.html">Android NDK</a>
+</li>
+<li>Put this whole project (actually, only Android folder should be enough.) under <code>$NDK/sources/ffmpeg4android</code>
+</li>
+<li>Add reference <code>$(call import-module, ffmpeg4android/android/arm)</code> into Android.mk of your NDK project.</li>
+<li>Now ndk-build should work. Tada~</li>
+</ol><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Should be same as FFmpeg...</p>
+
+<h2>
+<a name="contact" class="anchor" href="#contact"><span class="octicon octicon-link"></span></a>Contact</h2>
+
+<p>Any problems please contact me @<a href="https://github.com/chloette/ffmpeg4android">ffmpeg4android</a> or <code>chloette.e@gmail.com</code></p>
+
+<hr><h1>
+<a name="ffmpeg-readme" class="anchor" href="#ffmpeg-readme"><span class="octicon octicon-link"></span></a>FFmpeg README</h1>
+
+<p>FFmpeg is a collection of libraries and tools to process multimedia content
+such as audio, video, subtitles and related metadata.</p>
+
+<h2>
+<a name="libraries" class="anchor" href="#libraries"><span class="octicon octicon-link"></span></a>Libraries</h2>
+
+<ul>
+<li>
+<code>libavcodec</code> provides implementation of a wider range of codecs.</li>
+<li>
+<code>libavformat</code> implements streaming protocols, container formats and basic I/O access.</li>
+<li>
+<code>libavutil</code> includes hashers, decompressors and miscellaneous utility functions.</li>
+<li>
+<code>libavfilter</code> provides a mean to alter decoded Audio and Video through chain of filters.</li>
+<li>
+<code>libavdevice</code> provides an abstraction to access capture and playback devices.</li>
+<li>
+<code>libswresample</code> implements audio mixing and resampling routines.</li>
+<li>
+<code>libswscale</code> implements color conversion and scaling routines.</li>
+</ul><h2>
+<a name="tools" class="anchor" href="#tools"><span class="octicon octicon-link"></span></a>Tools</h2>
+
+<ul>
+<li>
+<a href="http://ffmpeg.org/ffmpeg.html">ffmpeg</a> is a command line toolbox to
+manipulate, convert and stream multimedia content.</li>
+<li>
+<a href="http://ffmpeg.org/ffplay.html">ffplay</a> is a minimalistic multimedia player.</li>
+<li>
+<a href="http://ffmpeg.org/ffprobe.html">ffprobe</a> is a simple analisys tool to inspect
+multimedia content.</li>
+<li>Additional small tools such as <code>aviocat</code>, <code>ismindex</code> and <code>qt-faststart</code>.</li>
+</ul><h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>The offline documentation is available in the <strong>doc/</strong> directory.</p>
+
+<p>The online documentation is available in the main <a href="http://ffmpeg.org">website</a>
+and in the <a href="http://trac.ffmpeg.org">wiki</a>.</p>
+
+<h3>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h3>
+
+<p>Conding examples are available in the <strong>doc/example</strong> directory.</p>
+
+<h2>
+<a name="license-1" class="anchor" href="#license-1"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>FFmpeg codebase is mainly LGPL-licensed with optional components licensed under
+GPL. Please refer to the LICENSE file for detailed information.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/chloette/ffmpeg4android/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/chloette/ffmpeg4android/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/chloette/ffmpeg4android"></a> is maintained by <a href="https://github.com/chloette">chloette</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54462740-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
