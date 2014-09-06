@@ -29,36 +29,90 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="ffmpeg4android" class="anchor" href="#ffmpeg4android"><span class="octicon octicon-link"></span></a>ffmpeg4android</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<h1></h1>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p>(FFmpeg README is listed below)
+ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg modules (without bins) and X264 encoders.</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<ol>
+<li>Download <a href="https://developer.android.com/tools/sdk/ndk/index.html">Android NDK</a>
+</li>
+<li>Put this whole project (actually, only Android folder should be enough.) under <code>$NDK/sources/ffmpeg4android</code>
+</li>
+<li>Add reference <code>$(call import-module, ffmpeg4android/android/arm)</code> into Android.mk of your NDK project.</li>
+<li>Now ndk-build should work. Tada~</li>
+</ol><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Should be same as FFmpeg...</p>
+
+<h2>
+<a name="contact" class="anchor" href="#contact"><span class="octicon octicon-link"></span></a>Contact</h2>
+
+<h2>
+<a name="any-problems-please-contact-me-ffmpeg4android-or-chloetteegmailcom" class="anchor" href="#any-problems-please-contact-me-ffmpeg4android-or-chloetteegmailcom"><span class="octicon octicon-link"></span></a>Any problems please contact me @<a href="https://github.com/chloette/ffmpeg4android">ffmpeg4android</a> or <code>chloette.e@gmail.com</code>
+</h2>
+
+<h1>
+<a name="ffmpeg-readme" class="anchor" href="#ffmpeg-readme"><span class="octicon octicon-link"></span></a>FFmpeg README</h1>
+
+<p>FFmpeg is a collection of libraries and tools to process multimedia content
+such as audio, video, subtitles and related metadata.</p>
+
+<h2>
+<a name="libraries" class="anchor" href="#libraries"><span class="octicon octicon-link"></span></a>Libraries</h2>
+
+<ul>
+<li>
+<code>libavcodec</code> provides implementation of a wider range of codecs.</li>
+<li>
+<code>libavformat</code> implements streaming protocols, container formats and basic I/O access.</li>
+<li>
+<code>libavutil</code> includes hashers, decompressors and miscellaneous utility functions.</li>
+<li>
+<code>libavfilter</code> provides a mean to alter decoded Audio and Video through chain of filters.</li>
+<li>
+<code>libavdevice</code> provides an abstraction to access capture and playback devices.</li>
+<li>
+<code>libswresample</code> implements audio mixing and resampling routines.</li>
+<li>
+<code>libswscale</code> implements color conversion and scaling routines.</li>
+</ul><h2>
+<a name="tools" class="anchor" href="#tools"><span class="octicon octicon-link"></span></a>Tools</h2>
+
+<ul>
+<li>
+<a href="http://ffmpeg.org/ffmpeg.html">ffmpeg</a> is a command line toolbox to
+manipulate, convert and stream multimedia content.</li>
+<li>
+<a href="http://ffmpeg.org/ffplay.html">ffplay</a> is a minimalistic multimedia player.</li>
+<li>
+<a href="http://ffmpeg.org/ffprobe.html">ffprobe</a> is a simple analisys tool to inspect
+multimedia content.</li>
+<li>Additional small tools such as <code>aviocat</code>, <code>ismindex</code> and <code>qt-faststart</code>.</li>
+</ul><h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>The offline documentation is available in the <strong>doc/</strong> directory.</p>
+
+<p>The online documentation is available in the main <a href="http://ffmpeg.org">website</a>
+and in the <a href="http://trac.ffmpeg.org">wiki</a>.</p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Conding examples are available in the <strong>doc/example</strong> directory.</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<h2>
+<a name="license-1" class="anchor" href="#license-1"><span class="octicon octicon-link"></span></a>License</h2>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>FFmpeg codebase is mainly LGPL-licensed with optional components licensed under
+GPL. Please refer to the LICENSE file for detailed information.</p>
         </section>
 
         <aside id="sidebar">
