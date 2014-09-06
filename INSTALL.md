@@ -5,9 +5,12 @@
 4. Now ndk-build should work. Tada~
 
 #Contact
-Any problems please contact me @[ffmpeg4android](https://github.com/chloette/ffmpeg4android) or `chloette.e@gmail.com`
+Any problems please contact me [@ffmpeg4android](https://github.com/chloette/ffmpeg4android) or `chloette.e@gmail.com`
+
 
 ---
+
+
 
 #Installing FFmpeg:
 

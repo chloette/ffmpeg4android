@@ -13,12 +13,12 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 Should be same as FFmpeg...
 
 ##Contact
-Any problems please contact me @[ffmpeg4android](https://github.com/chloette/ffmpeg4android) or `chloette.e@gmail.com`
-
----
+Any problems please contact me [@ffmpeg4android](https://github.com/chloette/ffmpeg4android) or `chloette.e@gmail.com`
 
 
 ---
+
+
 
 
 
