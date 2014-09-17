@@ -40,11 +40,25 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 <ol>
 <li>Download <a href="https://developer.android.com/tools/sdk/ndk/index.html">Android NDK</a>
 </li>
-<li>Put this whole project (actually, only Android folder should be enough.) under <code>$NDK/sources/ffmpeg4android</code>
+<li>Put the whole <code>ffmpeg-2.x/*</code> folder (actually, only <code>ffmpeg-2.x/android/*</code> should be enough.) under <code>$NDK/sources/ffmpeg4android/</code>
 </li>
 <li>Add reference <code>$(call import-module, ffmpeg4android/android/arm)</code> into Android.mk of your NDK project.</li>
-<li>Now ndk-build should work. Tada~</li>
+<li>Now ndk-build should work. Tada~ </li>
 </ol><h2>
+<a name="notice" class="anchor" href="#notice"><span class="octicon octicon-link"></span></a>Notice</h2>
+
+<ol>
+<li>Now the build configure includes <code>all decoders</code> but <strong>only</strong> <code>aac and x264 encoders</code>, if you need more, please modify the <code>build_android10.sh</code> and compile again.</li>
+<li>If you want to compile with x264, you need <a href="http://chloette.github.io/x264android">x264android</a> first.</li>
+<li>Above ffmpeg 2.4, use Android_newer.mk; otherwise, use Android.mk.</li>
+<li>
+<code>ffmpeg</code> folder (not <code>ffmpeg-2.x</code>) contains latest build (newer than 2.4 but not stable), be care.</li>
+</ol><h2>
+<a name="environment" class="anchor" href="#environment"><span class="octicon octicon-link"></span></a>Environment</h2>
+
+<p><strong><em>Android NDK</em></strong> only.</p>
+
+<h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>Should be same as FFmpeg...</p>
