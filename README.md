@@ -5,9 +5,18 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 
 ##How to use
 1. Download [Android NDK](https://developer.android.com/tools/sdk/ndk/index.html)
-2. Put this whole project (actually, only Android folder should be enough.) under `$NDK/sources/ffmpeg4android`
+2. Put the whole `ffmpeg-2.x/*` folder (actually, only `ffmpeg-2.x/android/*` should be enough.) under `$NDK/sources/ffmpeg4android/`
 3. Add reference `$(call import-module, ffmpeg4android/android/arm)` into Android.mk of your NDK project.
-4. Now ndk-build should work. Tada~
+4. Now ndk-build should work. Tada~ 
+
+##Notice
+1. Now the build configure includes `all decoders` but **only** `aac and x264 encoders`, if you need more, please modify the `build_android10.sh` and compile again.
+2. If you want to compile with x264, you need [x264android](http://chloette.github.io/x264android) first.
+3. Above ffmpeg 2.4, use Android_newer.mk; otherwise, use Android.mk.
+4. `ffmpeg` folder (not `ffmpeg-2.x`) contains latest build (newer than 2.4 but not stable), be care.
+
+##Environment
+***Android NDK*** only.
 
 ##License
 Should be same as FFmpeg...

@@ -1,0 +1,14 @@
+prefix=/mnt/ffmpeg/ffmpeg-2.3.3/android/arm
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 55.69.100
+Requires: 
+Requires.private: libswresample >= 0.19.100, libavutil >= 52.92.100
+Conflicts:
+Libs: -L${libdir}  -lavcodec 
+Libs.private: -lx264 -lm -lz -pthread
+Cflags: -I${includedir}
