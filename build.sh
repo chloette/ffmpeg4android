@@ -5,6 +5,9 @@ cp build_android10.sh $1/
 
 cd $1
 
+rm -rf .git
+rm .gitignore
+
 #------------------
 #change output format
 #------------------
