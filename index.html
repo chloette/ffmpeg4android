@@ -32,7 +32,7 @@
 <a name="ffmpeg4android-readme" class="anchor" href="#ffmpeg4android-readme"><span class="octicon octicon-link"></span></a>ffmpeg4android README</h1>
 
 <p>(FFmpeg README is listed below)
-ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg modules (without bins) and X264 encoders.</p>
+ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg modules (without bins), and <strong>ANDROID-USE-ONLY libraries compiled with all decoders and x264/aac encoders</strong>.</p>
 
 <h2>
 <a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
@@ -43,16 +43,26 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 <li>Put the whole <code>ffmpeg-2.x/*</code> folder (actually, only <code>ffmpeg-2.x/android/*</code> should be enough.) under <code>$NDK/sources/ffmpeg4android/</code>
 </li>
 <li>Add reference <code>$(call import-module, ffmpeg4android/android/arm)</code> into Android.mk of your NDK project.</li>
-<li>Now ndk-build should work. Tada~ </li>
+<li>Now ndk-build should work. <strong><em>Tada~</em></strong>
+</li>
+</ol><h2>
+<a name="how-to-compile" class="anchor" href="#how-to-compile"><span class="octicon octicon-link"></span></a>How to compile)</h2>
+
+<ol>
+<li>Add path of ndk10 as environment variable : <code>$NDK10</code>
+</li>
+<li>If you want to compile with x264, you need <a href="http://chloette.github.io/x264android">x264android</a> at first. Then add x264 path as environment variable : <code>$X264</code>
+</li>
+<li>Now you can run <code>build.sh FFMPEG_CODES_FOLDER</code> to compile. <strong><em>Tada~</em></strong>
+</li>
 </ol><h2>
 <a name="notice" class="anchor" href="#notice"><span class="octicon octicon-link"></span></a>Notice</h2>
 
 <ol>
-<li>Now the build configure includes <code>all decoders</code> but <strong>only</strong> <code>aac and x264 encoders</code>, if you need more, please modify the <code>build_android10.sh</code> and compile again.</li>
-<li>If you want to compile with x264, you need <a href="http://chloette.github.io/x264android">x264android</a> first.</li>
-<li>Above ffmpeg 2.4, use Android_newer.mk; otherwise, use Android.mk.</li>
+<li>Now the <code>build_android10.sh</code> includes <code>all decoders</code> but <strong>only</strong> <code>aac and x264 encoders</code>, if you need more, please modify it and re-compile.</li>
 <li>
-<code>ffmpeg</code> folder (not <code>ffmpeg-2.x</code>) contains latest build (newer than 2.4 but not stable), be care.</li>
+<code>ffmpeg</code> folder (not <code>ffmpeg-2.x</code>) contains latest build (newer than <code>ffmpeg-2.4</code> but not stable), be care.</li>
+<li>Codes newer than <code>ffmpeg 2.4</code>, use <code>Android_newer.mk</code>; otherwise, use <code>Android.mk</code>.</li>
 </ol><h2>
 <a name="environment" class="anchor" href="#environment"><span class="octicon octicon-link"></span></a>Environment</h2>
 
