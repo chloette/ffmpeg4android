@@ -1,19 +1,24 @@
 ffmpeg4android README
 =====================
 (FFmpeg README is listed below)
-ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg modules (without bins) and X264 encoders.
+ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg modules (without bins), and **ANDROID-USE-ONLY libraries compiled with all decoders and x264/aac encoders**.
 
 ##How to use
 1. Download [Android NDK](https://developer.android.com/tools/sdk/ndk/index.html)
 2. Put the whole `ffmpeg-2.x/*` folder (actually, only `ffmpeg-2.x/android/*` should be enough.) under `$NDK/sources/ffmpeg4android/`
 3. Add reference `$(call import-module, ffmpeg4android/android/arm)` into Android.mk of your NDK project.
-4. Now ndk-build should work. Tada~ 
+4. Now ndk-build should work. ***Tada~***
+
+##How to compile)
+1. Add path of ndk10 as environment variable : `$NDK10`
+2. If you want to compile with x264, you need [x264android](http://chloette.github.io/x264android) at first. Then add x264 path as environment variable : `$X264`
+3. Now you can run `build.sh FFMPEG_CODES_FOLDER` to compile. ***Tada~***
 
 ##Notice
-1. Now the build configure includes `all decoders` but **only** `aac and x264 encoders`, if you need more, please modify the `build_android10.sh` and compile again.
-2. If you want to compile with x264, you need [x264android](http://chloette.github.io/x264android) first.
-3. Above ffmpeg 2.4, use Android_newer.mk; otherwise, use Android.mk.
-4. `ffmpeg` folder (not `ffmpeg-2.x`) contains latest build (newer than 2.4 but not stable), be care.
+1. Now the `build_android10.sh` includes `all decoders` but **only** `aac and x264 encoders`, if you need more, please modify it and re-compile.
+2. `ffmpeg` folder (not `ffmpeg-2.x`) contains latest build (newer than `ffmpeg-2.4` but not stable), be care.
+3. Codes newer than `ffmpeg 2.4`, use `Android_newer.mk`; otherwise, use `Android.mk`.
+
 
 ##Environment
 ***Android NDK*** only.
@@ -26,7 +31,6 @@ Any problems please contact me [@ffmpeg4android](https://github.com/chloette/ffm
 
 
 ---
-
 
 
 
