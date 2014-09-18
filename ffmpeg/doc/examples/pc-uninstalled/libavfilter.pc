@@ -1,0 +1,12 @@
+prefix=
+exec_prefix=
+libdir=${pcfiledir}/../../../libavfilter
+includedir=${pcfiledir}/../../..
+
+Name: libavfilter
+Description: FFmpeg audio/video filtering library
+Version: 5.1.101
+Requires: libswscale >= 3.0.100, libpostproc >= 53.0.100, libavformat >= 56.4.102, libavcodec >= 56.1.100, libswresample >= 1.1.100, libavutil >= 54.7.100
+Conflicts:
+Libs: -L${libdir} -Wl,-rpath,${libdir} -lavfilter 
+Cflags: -I${includedir}
