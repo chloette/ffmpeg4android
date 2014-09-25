@@ -21,7 +21,7 @@
       <div class="inner">
         <h1>Ffmpeg4android</h1>
         <h2></h2>
-        <a href="https://github.com/chloette/ffmpeg4android" class="button"><small>View project on</small>GitHub</a>
+        <a href="https://github.com/chloette/ffmpeg4android" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
 
@@ -46,7 +46,7 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 <li>Now ndk-build should work. <strong><em>Tada~</em></strong>
 </li>
 </ol><h2>
-<a name="how-to-compile" class="anchor" href="#how-to-compile"><span class="octicon octicon-link"></span></a>How to compile)</h2>
+<a name="how-to-compile-shared-libraries" class="anchor" href="#how-to-compile-shared-libraries"><span class="octicon octicon-link"></span></a>How to compile (shared libraries)</h2>
 
 <ol>
 <li>Add path of ndk10 as environment variable : <code>$NDK10</code>
@@ -56,10 +56,21 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 <li>Now you can run <code>build.sh FFMPEG_CODES_FOLDER</code> to compile. <strong><em>Tada~</em></strong>
 </li>
 </ol><h2>
+<a name="how-to-compile-static-libraries-be-care--lgpl-limitation" class="anchor" href="#how-to-compile-static-libraries-be-care--lgpl-limitation"><span class="octicon octicon-link"></span></a>How to compile static libraries (BE CARE : LGPL limitation)</h2>
+
+<ol>
+<li>Follow step 1 and 2 of "How to compile (shared libraries)"</li>
+<li>Use <code>--enable-static</code> instead of <code>--disable-static</code> in <code>build_android.sh</code>
+</li>
+<li>Now you can run <code>build.sh FFMPEG_CODES_FOLDER</code> to compile static libraries. <strong><em>Tada~</em></strong>
+</li>
+<li>One more thing, modify <code>Android.mk</code>, use <code>PREBUILT_STATIC_LIBRARY</code> instead of <code>PREBUILT_SHARED_LIBRARY</code>; And use <code>lib***.a</code> instead of <code>lib***.so</code>
+</li>
+</ol><h2>
 <a name="notice" class="anchor" href="#notice"><span class="octicon octicon-link"></span></a>Notice</h2>
 
 <ol>
-<li>Now the <code>build_android10.sh</code> includes <code>all decoders</code> but <strong>only</strong> <code>aac and x264 encoders</code>, if you need more, please modify it and re-compile.</li>
+<li>Now the <code>build_android.sh</code> includes <code>all decoders</code> but <strong>only</strong> <code>aac and x264 encoders</code>, if you need more, please modify it and re-compile. BTW, per X264, please follow GPL license.</li>
 <li>
 <code>ffmpeg</code> folder (not <code>ffmpeg-2.x</code>) contains latest build (newer than <code>ffmpeg-2.4</code> but not stable), be care.</li>
 <li>Codes newer than <code>ffmpeg 2.4</code>, use <code>Android_newer.mk</code>; otherwise, use <code>Android.mk</code>.</li>
