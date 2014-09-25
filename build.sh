@@ -1,7 +1,7 @@
 #------------------
 #copy build.sh
 #------------------
-cp build_android10.sh $1/
+cp build_android.sh $1/
 
 cd $1
 
@@ -19,7 +19,7 @@ sed -i "s/SLIB_INSTALL_LINKS='\$(SLIBNAME_WITH_MAJOR) \$(SLIBNAME)'/SLIB_INSTALL
 #------------------
 #build
 #------------------
-./build_android10.sh
+./build_android.sh
 
 #------------------
 #cp & rename mk.

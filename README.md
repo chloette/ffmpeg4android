@@ -9,16 +9,21 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 3. Add reference `$(call import-module, ffmpeg4android/android/arm)` into Android.mk of your NDK project.
 4. Now ndk-build should work. ***Tada~***
 
-##How to compile)
+##How to compile (shared libraries)
 1. Add path of ndk10 as environment variable : `$NDK10`
 2. If you want to compile with x264, you need [x264android](http://chloette.github.io/x264android) at first. Then add x264 path as environment variable : `$X264`
 3. Now you can run `build.sh FFMPEG_CODES_FOLDER` to compile. ***Tada~***
 
+##How to compile static libraries (BE CARE : LGPL limitation)
+1. Follow step 1 and 2 of "How to compile (shared libraries)"
+2. Use `--enable-static` instead of `--disable-static` in `build_android.sh`
+3. Now you can run `build.sh FFMPEG_CODES_FOLDER` to compile static libraries. ***Tada~***
+4. One more thing, modify `Android.mk`, use `PREBUILT_STATIC_LIBRARY` instead of `PREBUILT_SHARED_LIBRARY`; And use `lib***.a` instead of `lib***.so`
+
 ##Notice
-1. Now the `build_android10.sh` includes `all decoders` but **only** `aac and x264 encoders`, if you need more, please modify it and re-compile.
+1. Now the `build_android.sh` includes `all decoders` but **only** `aac and x264 encoders`, if you need more, please modify it and re-compile. BTW, per X264, please follow GPL license.
 2. `ffmpeg` folder (not `ffmpeg-2.x`) contains latest build (newer than `ffmpeg-2.4` but not stable), be care.
 3. Codes newer than `ffmpeg 2.4`, use `Android_newer.mk`; otherwise, use `Android.mk`.
-
 
 ##Environment
 ***Android NDK*** only.
