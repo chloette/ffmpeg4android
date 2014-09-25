@@ -5,8 +5,8 @@ includedir=${pcfiledir}/../../..
 
 Name: libavformat
 Description: FFmpeg container format library
-Version: 56.4.102
-Requires: libavcodec >= 56.1.100, libswresample >= 1.1.100, libavutil >= 54.7.100
+Version: 56.5.100
+Requires: libavcodec >= 56.1.101, libswresample >= 1.1.100, libavutil >= 54.7.101
 Conflicts:
 Libs: -L${libdir} -Wl,-rpath,${libdir} -lavformat 
 Cflags: -I${includedir}

@@ -416,6 +416,7 @@
 @c @set config-opencl no
 @c @set config-opengl no
 @c @set config-openssl no
+@c @set config-sdl no
 @c @set config-x11grab no
 @c @set config-xlib no
 @set config-zlib yes
@@ -1546,6 +1547,7 @@
 @c @set config-alsa-indev no
 @c @set config-avfoundation-indev no
 @c @set config-bktr-indev no
+@c @set config-decklink-indev no
 @c @set config-dshow-indev no
 @set config-dv1394-indev yes
 @set config-fbdev-indev yes

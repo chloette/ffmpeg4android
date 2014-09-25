@@ -16,6 +16,7 @@ libavcodec/dvdec.o: libavcodec/dvdec.c libavutil/avassert.h \
  libavcodec/dv_profile.h libavcodec/get_bits.h libavutil/common.h \
  libavutil/intreadwrite.h libavutil/bswap.h libavutil/arm/bswap.h \
  libavutil/arm/intreadwrite.h libavcodec/mathops.h \
- libavcodec/arm/mathops.h libavcodec/me_cmp.h libavcodec/dvdata.h \
+ libavcodec/arm/mathops.h libavcodec/me_cmp.h \
+ libavcodec/dv_profile_internal.h libavcodec/dvdata.h \
  libavcodec/idctdsp.h libavcodec/internal.h libavutil/mathematics.h \
  libavcodec/put_bits.h libavcodec/simple_idct.h
