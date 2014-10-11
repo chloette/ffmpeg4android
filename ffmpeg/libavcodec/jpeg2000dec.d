@@ -17,4 +17,4 @@ libavcodec/jpeg2000dec.o: libavcodec/jpeg2000dec.c libavutil/attributes.h \
  libavutil/intreadwrite.h libavutil/bswap.h libavutil/arm/bswap.h \
  libavutil/arm/intreadwrite.h libavcodec/internal.h \
  libavutil/mathematics.h libavcodec/thread.h libavcodec/jpeg2000.h \
- libavcodec/mqc.h libavcodec/jpeg2000dwt.h
+ libavcodec/mqc.h libavcodec/jpeg2000dwt.h libavcodec/jpeg2000dsp.h

@@ -5,9 +5,9 @@ includedir=${prefix}/include
 
 Name: libavcodec
 Description: FFmpeg codec library
-Version: 56.1.101
+Version: 56.4.101
 Requires: 
-Requires.private: libswresample >= 1.1.100, libavutil >= 54.7.101
+Requires.private: libswresample >= 1.1.100, libavutil >= 54.10.100
 Conflicts:
 Libs: -L${libdir}  -lavcodec 
 Libs.private: -lx264 -lm -lz -pthread

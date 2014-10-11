@@ -8,11 +8,11 @@ libavformat/dump.o: libavformat/dump.c libavutil/channel_layout.h \
  libavutil/log.h libavutil/arm/timer.h libavutil/cpu.h libavutil/dict.h \
  libavutil/pixfmt.h libavutil/old_pix_fmts.h libavutil/libm.h \
  libavutil/intfloat.h libavutil/rational.h libavutil/mathematics.h \
- libavutil/mathematics.h libavutil/avstring.h libavutil/replaygain.h \
- libavutil/stereo3d.h libavutil/frame.h libavutil/buffer.h \
- libavutil/samplefmt.h libavformat/avformat.h libavcodec/avcodec.h \
- libavutil/samplefmt.h libavutil/avutil.h libavutil/buffer.h \
- libavutil/cpu.h libavutil/dict.h libavutil/frame.h libavutil/pixfmt.h \
- libavutil/rational.h libavcodec/version.h libavutil/version.h \
- libavcodec/old_codec_ids.h libavformat/avio.h libavutil/common.h \
- libavformat/version.h
+ libavutil/mathematics.h libavutil/opt.h libavutil/samplefmt.h \
+ libavutil/avstring.h libavutil/replaygain.h libavutil/stereo3d.h \
+ libavutil/frame.h libavutil/buffer.h libavformat/avformat.h \
+ libavcodec/avcodec.h libavutil/samplefmt.h libavutil/avutil.h \
+ libavutil/buffer.h libavutil/cpu.h libavutil/dict.h libavutil/frame.h \
+ libavutil/pixfmt.h libavutil/rational.h libavcodec/version.h \
+ libavutil/version.h libavcodec/old_codec_ids.h libavformat/avio.h \
+ libavutil/common.h libavformat/version.h

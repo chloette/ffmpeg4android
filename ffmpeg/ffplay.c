@@ -546,9 +546,8 @@ static void decoder_init(Decoder *d, AVCodecContext *avctx, PacketQueue *queue, 
     d->start_pts = AV_NOPTS_VALUE;
 }
 
-static int decoder_decode_frame(Decoder *d, void *fframe) {
+static int decoder_decode_frame(Decoder *d, AVFrame *frame, AVSubtitle *sub) {
     int got_frame = 0;
-    AVFrame *frame = fframe;
 
     d->flushed = 0;
 
@@ -608,7 +607,7 @@ static int decoder_decode_frame(Decoder *d, void *fframe) {
                 }
                 break;
             case AVMEDIA_TYPE_SUBTITLE:
-                ret = avcodec_decode_subtitle2(d->avctx, fframe, &got_frame, &d->pkt_temp);
+                ret = avcodec_decode_subtitle2(d->avctx, sub, &got_frame, &d->pkt_temp);
                 break;
         }
 
@@ -1863,7 +1862,7 @@ static int get_video_frame(VideoState *is, AVFrame *frame)
 {
     int got_picture;
 
-    if ((got_picture = decoder_decode_frame(&is->viddec, frame)) < 0)
+    if ((got_picture = decoder_decode_frame(&is->viddec, frame, NULL)) < 0)
         return -1;
 
     if (got_picture) {
@@ -2219,7 +2218,7 @@ static int subtitle_thread(void *arg)
         if (!(sp = frame_queue_peek_writable(&is->subpq)))
             return 0;
 
-        if ((got_subtitle = decoder_decode_frame(&is->subdec, &sp->sub)) < 0)
+        if ((got_subtitle = decoder_decode_frame(&is->subdec, NULL, &sp->sub)) < 0)
             break;
 
         pts = 0;
@@ -2420,6 +2419,7 @@ static int audio_decode_frame(VideoState *is)
                            "Cannot create sample rate converter for conversion of %d Hz %s %d channels to %d Hz %s %d channels!\n",
                             is->frame->sample_rate, av_get_sample_fmt_name(is->frame->format), av_frame_get_channels(is->frame),
                             is->audio_tgt.freq, av_get_sample_fmt_name(is->audio_tgt.fmt), is->audio_tgt.channels);
+                    swr_free(&is->swr_ctx);
                     break;
                 }
                 is->audio_src.channel_layout = dec_channel_layout;
@@ -2455,7 +2455,8 @@ static int audio_decode_frame(VideoState *is)
                 }
                 if (len2 == out_count) {
                     av_log(NULL, AV_LOG_WARNING, "audio buffer is probably too small\n");
-                    swr_init(is->swr_ctx);
+                    if (swr_init(is->swr_ctx) < 0)
+                        swr_free(&is->swr_ctx);
                 }
                 is->audio_buf = is->audio_buf1;
                 resampled_data_size = len2 * is->audio_tgt.channels * av_get_bytes_per_sample(is->audio_tgt.fmt);
@@ -2483,7 +2484,7 @@ static int audio_decode_frame(VideoState *is)
             return resampled_data_size;
         }
 
-        if ((got_frame = decoder_decode_frame(&is->auddec, is->frame)) < 0)
+        if ((got_frame = decoder_decode_frame(&is->auddec, is->frame, NULL)) < 0)
             return -1;
 
         if (is->auddec.flushed)

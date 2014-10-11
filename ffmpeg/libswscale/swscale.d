@@ -7,8 +7,9 @@ libswscale/swscale.o: libswscale/swscale.c libavutil/avassert.h \
  libavutil/pixfmt.h libavutil/old_pix_fmts.h libavutil/libm.h \
  libavutil/intfloat.h libavutil/rational.h libavutil/mathematics.h \
  libavutil/avutil.h libavutil/bswap.h libavutil/arm/bswap.h \
- libavutil/cpu.h libavutil/intreadwrite.h libavutil/bswap.h \
- libavutil/arm/intreadwrite.h libavutil/mathematics.h libavutil/pixdesc.h \
- libswscale/rgb2rgb.h libswscale/swscale.h libavutil/log.h \
- libavutil/pixfmt.h libswscale/version.h libavutil/version.h \
- libswscale/swscale_internal.h libavutil/common.h
+ libavutil/cpu.h libavutil/imgutils.h libavutil/pixdesc.h \
+ libavutil/intreadwrite.h libavutil/bswap.h libavutil/arm/intreadwrite.h \
+ libavutil/mathematics.h libavutil/pixdesc.h libswscale/rgb2rgb.h \
+ libswscale/swscale.h libavutil/log.h libavutil/pixfmt.h \
+ libswscale/version.h libavutil/version.h libswscale/swscale_internal.h \
+ libavutil/common.h

@@ -215,17 +215,17 @@ int ff_h264_check_intra_pred_mode(H264Context *h, int mode, int is_chroma)
 
     if ((h->left_samples_available & 0x8080) != 0x8080) {
         mode = left[mode];
-        if (is_chroma && (h->left_samples_available & 0x8080)) {
-            // mad cow disease mode, aka MBAFF + constrained_intra_pred
-            mode = ALZHEIMER_DC_L0T_PRED8x8 +
-                   (!(h->left_samples_available & 0x8000)) +
-                   2 * (mode == DC_128_PRED8x8);
-        }
         if (mode < 0) {
             av_log(h->avctx, AV_LOG_ERROR,
                    "left block unavailable for requested intra mode at %d %d\n",
                    h->mb_x, h->mb_y);
             return AVERROR_INVALIDDATA;
+        }
+        if (is_chroma && (h->left_samples_available & 0x8080)) {
+            // mad cow disease mode, aka MBAFF + constrained_intra_pred
+            mode = ALZHEIMER_DC_L0T_PRED8x8 +
+                   (!(h->left_samples_available & 0x8000)) +
+                   2 * (mode == DC_128_PRED8x8);
         }
     }
 
@@ -1358,7 +1358,7 @@ static int get_avc_nalsize(H264Context *h, const uint8_t *buf,
         return -1;
 
     for (i = 0; i < h->nal_length_size; i++)
-        nalsize = (nalsize << 8) | buf[(*buf_index)++];
+        nalsize = ((unsigned)nalsize << 8) | buf[(*buf_index)++];
     if (nalsize <= 0 || nalsize > buf_size - *buf_index) {
         av_log(h->avctx, AV_LOG_ERROR,
                "AVC: nal size %d\n", nalsize);

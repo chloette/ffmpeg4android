@@ -156,8 +156,9 @@ static char *extradata2psets(AVCodecContext *c)
     const uint8_t *r;
     static const char pset_string[] = "; sprop-parameter-sets=";
     static const char profile_string[] = "; profile-level-id=";
-    uint8_t *orig_extradata = NULL;
-    int orig_extradata_size = 0;
+    uint8_t *extradata = c->extradata;
+    int extradata_size = c->extradata_size;
+    uint8_t *tmpbuf = NULL;
     const uint8_t *sps = NULL, *sps_end;
 
     if (c->extradata_size > MAX_EXTRADATA_SIZE) {
@@ -166,44 +167,28 @@ static char *extradata2psets(AVCodecContext *c)
         return NULL;
     }
     if (c->extradata[0] == 1) {
-        uint8_t *dummy_p;
-        int dummy_int;
-        AVBitStreamFilterContext *bsfc= av_bitstream_filter_init("h264_mp4toannexb");
-
-        if (!bsfc) {
-            av_log(c, AV_LOG_ERROR, "Cannot open the h264_mp4toannexb BSF!\n");
-
+        if (ff_avc_write_annexb_extradata(c->extradata, &extradata,
+                                          &extradata_size))
             return NULL;
-        }
-
-        orig_extradata_size = c->extradata_size;
-        orig_extradata = av_mallocz(orig_extradata_size +
-                                    FF_INPUT_BUFFER_PADDING_SIZE);
-        if (!orig_extradata) {
-            av_bitstream_filter_close(bsfc);
-            return NULL;
-        }
-        memcpy(orig_extradata, c->extradata, orig_extradata_size);
-        av_bitstream_filter_filter(bsfc, c, NULL, &dummy_p, &dummy_int, NULL, 0, 0);
-        av_bitstream_filter_close(bsfc);
+        tmpbuf = extradata;
     }
 
     psets = av_mallocz(MAX_PSET_SIZE);
     if (!psets) {
         av_log(c, AV_LOG_ERROR, "Cannot allocate memory for the parameter sets.\n");
-        av_free(orig_extradata);
+        av_free(tmpbuf);
         return NULL;
     }
     memcpy(psets, pset_string, strlen(pset_string));
     p = psets + strlen(pset_string);
-    r = ff_avc_find_startcode(c->extradata, c->extradata + c->extradata_size);
-    while (r < c->extradata + c->extradata_size) {
+    r = ff_avc_find_startcode(extradata, extradata + extradata_size);
+    while (r < extradata + extradata_size) {
         const uint8_t *r1;
         uint8_t nal_type;
 
         while (!*(r++));
         nal_type = *r & 0x1f;
-        r1 = ff_avc_find_startcode(r, c->extradata + c->extradata_size);
+        r1 = ff_avc_find_startcode(r, extradata + extradata_size);
         if (nal_type != 7 && nal_type != 8) { /* Only output SPS and PPS */
             r = r1;
             continue;
@@ -219,6 +204,7 @@ static char *extradata2psets(AVCodecContext *c)
         if (!av_base64_encode(p, MAX_PSET_SIZE - (p - psets), r, r1 - r)) {
             av_log(c, AV_LOG_ERROR, "Cannot Base64-encode %"PTRDIFF_SPECIFIER" %"PTRDIFF_SPECIFIER"!\n", MAX_PSET_SIZE - (p - psets), r1 - r);
             av_free(psets);
+            av_free(tmpbuf);
 
             return NULL;
         }
@@ -231,11 +217,7 @@ static char *extradata2psets(AVCodecContext *c)
         ff_data_to_hex(p, sps + 1, 3, 0);
         p[6] = '\0';
     }
-    if (orig_extradata) {
-        av_free(c->extradata);
-        c->extradata      = orig_extradata;
-        c->extradata_size = orig_extradata_size;
-    }
+    av_free(tmpbuf);
 
     return psets;
 }
@@ -412,6 +394,19 @@ static char *sdp_write_media_attributes(char *buff, int size, AVCodecContext *c,
                                     "a=fmtp:%d packetization-mode=%d%s\r\n",
                                      payload_type,
                                      payload_type, mode, config ? config : "");
+            break;
+        }
+        case AV_CODEC_ID_H261:
+        {
+            const char *pic_fmt = NULL;
+            /* only QCIF and CIF are specified as supported in RFC 4587 */
+            if (c->width == 176 && c->height == 144)
+                pic_fmt = "QCIF=1";
+            if (c->width == 352 && c->height == 288)
+                pic_fmt = "CIF=1";
+            av_strlcatf(buff, size, "a=rtpmap:%d H261/90000\r\n", payload_type);
+            if (pic_fmt)
+                av_strlcatf(buff, size, "a=fmtp:%d %s\r\n", payload_type, pic_fmt);
             break;
         }
         case AV_CODEC_ID_H263:
@@ -597,8 +592,18 @@ static char *sdp_write_media_attributes(char *buff, int size, AVCodecContext *c,
             }
             break;
         case AV_CODEC_ID_OPUS:
-            av_strlcatf(buff, size, "a=rtpmap:%d opus/48000\r\n",
+            /* The opus RTP draft says that all opus streams MUST be declared
+               as stereo, to avoid negotiation failures. The actual number of
+               channels can change on a packet-by-packet basis. The number of
+               channels a receiver prefers to receive or a sender plans to send
+               can be declared via fmtp parameters (both default to mono), but
+               receivers MUST be able to receive and process stereo packets. */
+            av_strlcatf(buff, size, "a=rtpmap:%d opus/48000/2\r\n",
                                      payload_type);
+            if (c->channels == 2) {
+                av_strlcatf(buff, size, "a=fmtp:%d sprop-stereo:1\r\n",
+                                         payload_type);
+            }
             break;
         default:
             /* Nothing special to do here... */

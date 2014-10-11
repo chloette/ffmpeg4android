@@ -171,16 +171,6 @@ error:
     return ret;
 }
 
-#if FF_API_ALLOC_OUTPUT_CONTEXT
-AVFormatContext *avformat_alloc_output_context(const char *format,
-                                               AVOutputFormat *oformat, const char *filename)
-{
-    AVFormatContext *avctx;
-    int ret = avformat_alloc_output_context2(&avctx, oformat, format, filename);
-    return ret < 0 ? NULL : avctx;
-}
-#endif
-
 static int validate_codec_tag(AVFormatContext *s, AVStream *st)
 {
     const AVCodecTag *avctag;
@@ -506,8 +496,10 @@ static int compute_pkt_fields2(AVFormatContext *s, AVStream *st, AVPacket *pkt)
         return AVERROR(EINVAL);
     }
     if (pkt->dts != AV_NOPTS_VALUE && pkt->pts != AV_NOPTS_VALUE && pkt->pts < pkt->dts) {
-        av_log(s, AV_LOG_ERROR, "pts (%s) < dts (%s) in stream %d\n",
-               av_ts2str(pkt->pts), av_ts2str(pkt->dts), st->index);
+        av_log(s, AV_LOG_ERROR,
+               "pts (%s) < dts (%s) in stream %d\n",
+               av_ts2str(pkt->pts), av_ts2str(pkt->dts),
+               st->index);
         return AVERROR(EINVAL);
     }
 

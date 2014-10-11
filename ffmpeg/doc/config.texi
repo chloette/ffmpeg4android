@@ -291,6 +291,7 @@
 @c @set have-vfp-args no
 @c @set have-xform-asm no
 @c @set have-xmm-clobbers no
+@c @set have-condition-variable-ptr no
 @set have-socklen-t yes
 @set have-struct-addrinfo yes
 @set have-struct-group-source-req yes
@@ -1122,6 +1123,7 @@
 @set config-str-demuxer yes
 @set config-subviewer1-demuxer yes
 @set config-subviewer-demuxer yes
+@set config-sup-demuxer yes
 @set config-swf-demuxer yes
 @set config-tak-demuxer yes
 @set config-tedcaptions-demuxer yes
@@ -1159,6 +1161,7 @@
 @set config-image-dpx-pipe-demuxer yes
 @set config-image-exr-pipe-demuxer yes
 @set config-image-j2k-pipe-demuxer yes
+@set config-image-jpeg-pipe-demuxer yes
 @set config-image-jpegls-pipe-demuxer yes
 @set config-image-pictor-pipe-demuxer yes
 @set config-image-png-pipe-demuxer yes
