@@ -47,8 +47,10 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 <li>Add reference <code>$(call import-module, ffmpeg4android/android/arm)</code> into Android.mk of your NDK project.</li>
 <li>Now ndk-build should work. <strong><em>Tada~</em></strong>
 </li>
-</ol><h2>
-<a name="how-to-compile-shared-libraries" class="anchor" href="#how-to-compile-shared-libraries"><span class="octicon octicon-link"></span></a>How to compile (shared libraries)</h2>
+</ol>
+
+<h2>
+<a name="how-to-compile-shared-libraries-default" class="anchor" href="#how-to-compile-shared-libraries-default"><span class="octicon octicon-link"></span></a>How to compile shared libraries (DEFAULT)</h2>
 
 <ol>
 <li>Add path of ndk10 as environment variable : <code>$NDK10</code>
@@ -57,7 +59,9 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 </li>
 <li>Now you can run <code>build.sh FFMPEG_CODES_FOLDER</code> to compile. <strong><em>Tada~</em></strong>
 </li>
-</ol><h2>
+</ol>
+
+<h2>
 <a name="how-to-compile-static-libraries-be-care--lgpl-limitation" class="anchor" href="#how-to-compile-static-libraries-be-care--lgpl-limitation"><span class="octicon octicon-link"></span></a>How to compile static libraries (BE CARE : LGPL limitation)</h2>
 
 <ol>
@@ -68,7 +72,9 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 </li>
 <li>One more thing, modify <code>Android.mk</code>, use <code>PREBUILT_STATIC_LIBRARY</code> instead of <code>PREBUILT_SHARED_LIBRARY</code>; And use <code>lib***.a</code> instead of <code>lib***.so</code>
 </li>
-</ol><h2>
+</ol>
+
+<h2>
 <a name="notice" class="anchor" href="#notice"><span class="octicon octicon-link"></span></a>Notice</h2>
 
 <ol>
@@ -76,7 +82,9 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 <li>
 <code>ffmpeg</code> folder (not <code>ffmpeg-2.x</code>) contains latest build (newer than <code>ffmpeg-2.4</code> but not stable), be care.</li>
 <li>Codes newer than <code>ffmpeg 2.4</code>, use <code>Android_newer.mk</code>; otherwise, use <code>Android.mk</code>.</li>
-</ol><h2>
+</ol>
+
+<h2>
 <a name="environment" class="anchor" href="#environment"><span class="octicon octicon-link"></span></a>Environment</h2>
 
 <p><strong><em>Android NDK</em></strong> only.</p>
@@ -91,7 +99,9 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 
 <p>Any problems please contact me <a href="https://github.com/chloette/ffmpeg4android">@ffmpeg4android</a> or <code>chloette.e@gmail.com</code></p>
 
-<hr><h1>
+<hr>
+
+<h1>
 <a name="ffmpeg-readme" class="anchor" href="#ffmpeg-readme"><span class="octicon octicon-link"></span></a>FFmpeg README</h1>
 
 <p>FFmpeg is a collection of libraries and tools to process multimedia content
@@ -115,7 +125,9 @@ such as audio, video, subtitles and related metadata.</p>
 <code>libswresample</code> implements audio mixing and resampling routines.</li>
 <li>
 <code>libswscale</code> implements color conversion and scaling routines.</li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="tools" class="anchor" href="#tools"><span class="octicon octicon-link"></span></a>Tools</h2>
 
 <ul>
@@ -128,7 +140,9 @@ manipulate, convert and stream multimedia content.</li>
 <a href="http://ffmpeg.org/ffprobe.html">ffprobe</a> is a simple analisys tool to inspect
 multimedia content.</li>
 <li>Additional small tools such as <code>aviocat</code>, <code>ismindex</code> and <code>qt-faststart</code>.</li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <p>The offline documentation is available in the <strong>doc/</strong> directory.</p>
