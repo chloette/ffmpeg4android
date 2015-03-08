@@ -1,35 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <title>Ffmpeg4android by chloette</title>
 
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <title>Ffmpeg4android by chloette</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
+    <div class="wrapper">
+      <header>
         <h1>Ffmpeg4android</h1>
-        <h2></h2>
-        <a href="https://github.com/chloette/ffmpeg4android" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+        <p></p>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
-<a name="ffmpeg4android-readme" class="anchor" href="#ffmpeg4android-readme"><span class="octicon octicon-link"></span></a>ffmpeg4android README</h1>
+        <p class="view"><a href="https://github.com/chloette/ffmpeg4android">View the Project on GitHub <small>chloette/ffmpeg4android</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/chloette/ffmpeg4android/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/chloette/ffmpeg4android/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/chloette/ffmpeg4android">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="ffmpeg4android-readme" class="anchor" href="#ffmpeg4android-readme" aria-hidden="true"><span class="octicon octicon-link"></span></a>ffmpeg4android README</h1>
 
 <p>(FFmpeg README is listed below)
 ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg modules (without bins), and <strong>ANDROID-USE-ONLY libraries compiled with all decoders and x264/aac encoders</strong>.</p>
@@ -37,32 +37,32 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 <p><strong><em>Please make sure, before you follow "How to xxx" below, you already knew what's <code>ndk-build</code>, <code>environment-variable</code> and similar basic technologies.</em></strong></p>
 
 <h2>
-<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h2>
 
 <ol>
 <li>Download <a href="https://developer.android.com/tools/sdk/ndk/index.html">Android NDK</a>
 </li>
-<li>Put the whole <code>ffmpeg-2.x/*</code> folder (actually, only <code>ffmpeg-2.x/android/*</code> should be enough.) under <code>$NDK/sources/ffmpeg4android/</code>
+<li>Put the whole <code>ffmpeg-2.x/*</code> folder (actually, only <code>ffmpeg-2.x/android/*</code> is enough.) under <code>$NDK/sources/ffmpeg4android/</code>
 </li>
-<li>Add reference <code>$(call import-module, ffmpeg4android/android/arm)</code> into Android.mk of your NDK project.</li>
+<li>Add reference <code>$(call import-module, ffmpeg4android/android/arm)</code> into <code>Android.mk</code> of your project with NDK.</li>
 <li>Now ndk-build should work. <strong><em>Tada~</em></strong>
 </li>
 </ol>
 
 <h2>
-<a name="how-to-compile-shared-libraries-default" class="anchor" href="#how-to-compile-shared-libraries-default"><span class="octicon octicon-link"></span></a>How to compile shared libraries (DEFAULT)</h2>
+<a id="how-to-compile-shared-libraries-default" class="anchor" href="#how-to-compile-shared-libraries-default" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to compile shared libraries (DEFAULT)</h2>
 
 <ol>
-<li>Add path of ndk10 as environment variable : <code>$NDK10</code>
+<li>Add path of ndk10 as environment variable : <code>$NDK_HOME</code>
 </li>
-<li>If you want to compile with x264, you need <a href="http://chloette.github.io/x264android">x264android</a> at first. Then add x264 path as environment variable : <code>$X264</code>
+<li>If you want to compile with x264, you need <a href="http://chloette.github.io/x264android">x264android</a> at first. Then add x264 path as environment variable : <code>$X264_HOME</code>
 </li>
-<li>Now you can run <code>build.sh FFMPEG_CODES_FOLDER</code> to compile. <strong><em>Tada~</em></strong>
+<li>Now you can run <code>./build.sh FFMPEG_CODES_FOLDER</code> to compile. <strong><em>Tada~</em></strong>
 </li>
 </ol>
 
 <h2>
-<a name="how-to-compile-static-libraries-be-care--lgpl-limitation" class="anchor" href="#how-to-compile-static-libraries-be-care--lgpl-limitation"><span class="octicon octicon-link"></span></a>How to compile static libraries (BE CARE : LGPL limitation)</h2>
+<a id="how-to-compile-static-libraries-be-care--lgpl-limitation" class="anchor" href="#how-to-compile-static-libraries-be-care--lgpl-limitation" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to compile static libraries (BE CARE : LGPL limitation)</h2>
 
 <ol>
 <li>Follow step 1 and 2 of "How to compile (shared libraries)"</li>
@@ -75,7 +75,7 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 </ol>
 
 <h2>
-<a name="notice" class="anchor" href="#notice"><span class="octicon octicon-link"></span></a>Notice</h2>
+<a id="notice" class="anchor" href="#notice" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notice</h2>
 
 <ol>
 <li>Now the <code>build_android.sh</code> includes <code>all decoders</code> but <strong>only</strong> <code>aac and x264 encoders</code>, if you need more, please modify it and re-compile. BTW, per X264, please follow GPL license.</li>
@@ -85,30 +85,30 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 </ol>
 
 <h2>
-<a name="environment" class="anchor" href="#environment"><span class="octicon octicon-link"></span></a>Environment</h2>
+<a id="environment" class="anchor" href="#environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Environment</h2>
 
 <p><strong><em>Android NDK</em></strong> only.</p>
 
 <h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>Should be same as FFmpeg...</p>
 
 <h2>
-<a name="contact" class="anchor" href="#contact"><span class="octicon octicon-link"></span></a>Contact</h2>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h2>
 
 <p>Any problems please contact me <a href="https://github.com/chloette/ffmpeg4android">@ffmpeg4android</a> or <code>chloette.e@gmail.com</code></p>
 
 <hr>
 
 <h1>
-<a name="ffmpeg-readme" class="anchor" href="#ffmpeg-readme"><span class="octicon octicon-link"></span></a>FFmpeg README</h1>
+<a id="ffmpeg-readme" class="anchor" href="#ffmpeg-readme" aria-hidden="true"><span class="octicon octicon-link"></span></a>FFmpeg README</h1>
 
 <p>FFmpeg is a collection of libraries and tools to process multimedia content
 such as audio, video, subtitles and related metadata.</p>
 
 <h2>
-<a name="libraries" class="anchor" href="#libraries"><span class="octicon octicon-link"></span></a>Libraries</h2>
+<a id="libraries" class="anchor" href="#libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Libraries</h2>
 
 <ul>
 <li>
@@ -128,7 +128,7 @@ such as audio, video, subtitles and related metadata.</p>
 </ul>
 
 <h2>
-<a name="tools" class="anchor" href="#tools"><span class="octicon octicon-link"></span></a>Tools</h2>
+<a id="tools" class="anchor" href="#tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tools</h2>
 
 <ul>
 <li>
@@ -143,7 +143,7 @@ multimedia content.</li>
 </ul>
 
 <h2>
-<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <p>The offline documentation is available in the <strong>doc/</strong> directory.</p>
 
@@ -151,35 +151,23 @@ multimedia content.</li>
 and in the <a href="http://trac.ffmpeg.org">wiki</a>.</p>
 
 <h3>
-<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h3>
 
 <p>Conding examples are available in the <strong>doc/example</strong> directory.</p>
 
 <h2>
-<a name="license-1" class="anchor" href="#license-1"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license-1" class="anchor" href="#license-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>FFmpeg codebase is mainly LGPL-licensed with optional components licensed under
 GPL. Please refer to the LICENSE file for detailed information.</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/chloette/ffmpeg4android/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/chloette/ffmpeg4android/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/chloette/ffmpeg4android"></a> is maintained by <a href="https://github.com/chloette">chloette</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/chloette">chloette</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-
-            <script type="text/javascript">
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
