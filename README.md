@@ -1,7 +1,9 @@
 ffmpeg4android README
 =====================
 (FFmpeg README is listed below)
-ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg modules (without bins), and **ANDROID-USE-ONLY libraries compiled with all decoders and x264/aac encoders**.
+ffmpeg4android is a "source" project for Android NDK, which contains latest FFmpeg modules (without bins), and **ANDROID-USE-ONLY libraries compiled with all decoders and x264/aac encoders**.
+
+***NOTICE:*** If what you need, are "how to use FFmpeg" rather than "how to compile FFmpeg" or "how FFmpeg works", PLEASE goto [FFmpegAdapter](https://github.com/chloette/FFmpegAdapter) directly.
 
 ***Please make sure, before you follow "How to xxx" below, you already knew what's `ndk-build`, `environment-variable` and similar basic technologies.***
 
