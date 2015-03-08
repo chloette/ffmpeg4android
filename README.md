@@ -7,7 +7,7 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 
 ##How to use
 1. Download [Android NDK](https://developer.android.com/tools/sdk/ndk/index.html)
-2. Put the whole `ffmpeg-2.x/*` folder (actually, only `ffmpeg-2.x/android/*` is enough.) under `$NDK/sources/ffmpeg4android/`
+2. Put the whole `ffmpeg-2.x/*` folder (actually, only `ffmpeg-2.x/android/*` is enough.) under `$NDK_HOME/sources/ffmpeg4android/`
 3. Add reference `$(call import-module, ffmpeg4android/android/arm)` into `Android.mk` of your project with NDK.
 4. Now ndk-build should work. ***Tada~***
 
