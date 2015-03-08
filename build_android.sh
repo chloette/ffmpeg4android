@@ -1,9 +1,14 @@
 #!/bin/bash
-NDK=$NDK10
+NDK=$NDK_HOME
 SYSROOT=$NDK/platforms/android-9/arch-arm/
-TOOLCHAIN=$NDK/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64
-X264LIB=$X264/android/arm/lib/
-X264INC=$X264/android/arm/include/
+TOOLCHAIN=$NDK/toolchains/arm-linux-androideabi-4.8/prebuilt/
+if [ -d "$TOOLCHAIN/linux-x86_64" ]; then
+  TOOLCHAIN+=linux-x86_64
+else #treat as darwin
+  TOOLCHAIN+=darwin-x86_64
+fi
+X264LIB=$X264_HOME/android/arm/lib/
+X264INC=$X264_HOME/android/arm/include/
 function build_one
 {
 ./configure \

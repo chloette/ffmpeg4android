@@ -7,14 +7,14 @@ ffmpeg4android is a source project for Android NDK, which contains latest FFmpeg
 
 ##How to use
 1. Download [Android NDK](https://developer.android.com/tools/sdk/ndk/index.html)
-2. Put the whole `ffmpeg-2.x/*` folder (actually, only `ffmpeg-2.x/android/*` should be enough.) under `$NDK/sources/ffmpeg4android/`
-3. Add reference `$(call import-module, ffmpeg4android/android/arm)` into Android.mk of your NDK project.
+2. Put the whole `ffmpeg-2.x/*` folder (actually, only `ffmpeg-2.x/android/*` is enough.) under `$NDK/sources/ffmpeg4android/`
+3. Add reference `$(call import-module, ffmpeg4android/android/arm)` into `Android.mk` of your project with NDK.
 4. Now ndk-build should work. ***Tada~***
 
 ##How to compile shared libraries (DEFAULT)
-1. Add path of ndk10 as environment variable : `$NDK10`
-2. If you want to compile with x264, you need [x264android](http://chloette.github.io/x264android) at first. Then add x264 path as environment variable : `$X264`
-3. Now you can run `build.sh FFMPEG_CODES_FOLDER` to compile. ***Tada~***
+1. Add path of ndk10 as environment variable : `$NDK_HOME`
+2. If you want to compile with x264, you need [x264android](http://chloette.github.io/x264android) at first. Then add x264 path as environment variable : `$X264_HOME`
+3. Now you can run `./build.sh FFMPEG_CODES_FOLDER` to compile. ***Tada~***
 
 ##How to compile static libraries (BE CARE : LGPL limitation)
 1. Follow step 1 and 2 of "How to compile (shared libraries)"

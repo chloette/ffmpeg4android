@@ -311,7 +311,7 @@
 @c @set have-libc-msvcrt no
 @c @set have-libdc1394-1 no
 @c @set have-libdc1394-2 no
-@c @set have-makeinfo no
+@set have-makeinfo yes
 @c @set have-makeinfo-html no
 @set have-perl yes
 @set have-pod2man yes
@@ -335,7 +335,7 @@
 @c @set config-htmlpages no
 @set config-manpages yes
 @set config-podpages yes
-@c @set config-txtpages no
+@set config-txtpages yes
 @set config-avio-reading-example yes
 @set config-decoding-encoding-example yes
 @set config-demuxing-decoding-example yes
