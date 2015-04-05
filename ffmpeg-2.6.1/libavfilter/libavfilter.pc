@@ -1,0 +1,14 @@
+prefix=/Users/E/Codes/ffmpeg4android/ffmpeg-2.6.1/android/arm
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavfilter
+Description: FFmpeg audio/video filtering library
+Version: 5.11.102
+Requires: 
+Requires.private: libswscale >= 3.1.101, libpostproc >= 53.3.100, libavformat >= 56.25.101, libavcodec >= 56.26.100, libswresample >= 1.1.100, libavutil >= 54.20.100
+Conflicts:
+Libs: -L${libdir}  -lavfilter 
+Libs.private: -lx264 -lm -lz -pthread
+Cflags: -I${includedir}
