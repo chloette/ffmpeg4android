@@ -9,12 +9,12 @@ ffmpeg4android is a "source" project for Android NDK, which contains latest FFmp
 
 ##How to use
 1. Download [Android NDK](https://developer.android.com/tools/sdk/ndk/index.html)
-2. Put the whole `ffmpeg-2.x/*` folder (actually, only `ffmpeg-2.x/android/*` is enough.) under `$NDK_HOME/sources/ffmpeg4android/`
+2. Put the whole `ffmpeg-x.x.x/*` folder (actually, only `ffmpeg-x.x.x/android/*` is enough.) under `$NDK_HOME/sources/ffmpeg4android/`
 3. Add reference `$(call import-module, ffmpeg4android/android/arm)` into `Android.mk` of your project with NDK.
 4. Now ndk-build should work. ***Tada~***
 
 ##How to compile shared libraries (DEFAULT)
-1. Add path of ndk10 as environment variable : `$NDK_HOME`
+1. Add path of ndk11 as environment variable : `$NDK_HOME` (Will upgrade to ndk16 soon.)
 2. If you want to compile with x264, you need [x264android](http://chloette.github.io/x264android) at first. Then add x264 path as environment variable : `$X264_HOME`
 3. Now you can run `./build.sh FFMPEG_CODES_FOLDER` to compile. ***Tada~***
 
@@ -26,7 +26,7 @@ ffmpeg4android is a "source" project for Android NDK, which contains latest FFmp
 
 ##Notice
 1. Now the `build_android.sh` includes `all decoders` but **only** `aac and x264 encoders`, if you need more, please modify it and re-compile. BTW, per X264, please follow GPL license.
-2. `ffmpeg` folder (not `ffmpeg-2.x`) contains latest build (newer than `ffmpeg-2.4` but not stable), be care.
+2. `ffmpeg` folder (not `ffmpeg-x.x`) contains latest build (newer than `ffmpeg-2.4` but not stable), be care.
 3. Codes newer than `ffmpeg 2.4`, use `Android_newer.mk`; otherwise, use `Android.mk`.
 
 ##Environment
