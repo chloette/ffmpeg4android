@@ -1,0 +1,14 @@
+prefix=/Users/E/Codes/_ffmpeg4android/ffmpeg-3.0.10/android/arm
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 57.25.100
+Requires: 
+Requires.private: libavcodec >= 57.24.102, libswresample >= 2.0.101, libavutil >= 55.17.103
+Conflicts:
+Libs: -L${libdir}  -lavformat 
+Libs.private: -lx264 -lm -lz -pthread
+Cflags: -I${includedir}
