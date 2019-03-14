@@ -2,7 +2,7 @@ title: Ffmpeg4android
 description: 
 google_analytics: UA-54462740-1
 show_downloads: true
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 
 gems:
   - jekyll-mentions
