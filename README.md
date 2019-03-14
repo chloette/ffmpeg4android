@@ -1,5 +1,7 @@
 ffmpeg4android README
 =====================
+First of all, it's 9021 already. On Android, [MediaCodec](https://developer.android.com/reference/android/media/MediaCodec) is total enough though. Try it.
+
 (FFmpeg README is listed below)
 ffmpeg4android is a "source" project for Android NDK, which contains latest FFmpeg modules (without bins), and **ANDROID-USE-ONLY libraries compiled with all decoders and x264/aac encoders**.
 
